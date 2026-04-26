@@ -25,6 +25,7 @@
             border: 1px solid rgba(0, 212, 255, 0.2);
             box-shadow: 0 0 40px rgba(0, 212, 255, 0.1);
             max-width: 500px;
+            width: 90%;
         }
         .maintenance-icon { font-size: 4rem; margin-bottom: 20px; }
         .maintenance-title {
@@ -35,12 +36,57 @@
             margin-bottom: 15px;
         }
         .maintenance-text { color: #9b9b9b; font-size: 1.1rem; margin-bottom: 10px; }
-        .countdown {
-            font-family: 'Share Tech Mono', monospace;
-            font-size: 2.5rem;
+        
+        /* Аудиоплеер */
+        .audio-player {
+            margin-top: 30px;
+            background: #0f0f0f;
+            border-radius: 16px;
+            padding: 20px;
+            border: 1px solid rgba(255, 45, 149, 0.2);
+        }
+        .audio-title {
             color: #ff2d95;
-            text-shadow: 0 0 10px rgba(255, 45, 149, 0.6);
-            margin: 20px 0;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+            text-shadow: 0 0 5px rgba(255, 45, 149, 0.5);
+        }
+        .track-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        .track-btn {
+            background: #2d2d2d;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.85rem;
+            transition: all 0.3s;
+        }
+        .track-btn:hover, .track-btn.active {
+            background: #3d3d3d;
+            border-color: #ff2d95;
+            color: #ff2d95;
+            box-shadow: 0 0 10px rgba(255, 45, 149, 0.3);
+        }
+        audio {
+            width: 100%;
+            margin-top: 10px;
+            border-radius: 10px;
+            background: #1a1a1a;
+        }
+        audio::-webkit-media-controls-panel {
+            background-color: #2d2d2d;
+        }
+        audio::-webkit-media-controls-current-time-display,
+        audio::-webkit-media-controls-time-remaining-display {
+            color: #fff;
         }
         .hint { color: #555; font-size: 0.85rem; margin-top: 20px; }
     </style>
@@ -50,24 +96,53 @@
         <div class="maintenance-icon">🛠️</div>
         <h1 class="maintenance-title">Технические работы</h1>
         <p class="maintenance-text">Сайт обновляется — добавляем новые баннеры!</p>
-        <p class="maintenance-text">Пожалуйста, подождите немного.</p>
-        <div class="countdown" id="countdown">--:--</div>
+        <p class="maintenance-text">А пока можно послушать музыку из ZZZ 🎵</p>
+        
+        <!-- Аудиоплеер -->
+        <div class="audio-player">
+            <p class="audio-title">🎧 Саундтреки ZZZ</p>
+            <div class="track-list" id="track-list">
+                <!-- Кнопки треков добавятся через JS -->
+            </div>
+            <audio id="audio-player" controls loop>
+                Ваш браузер не поддерживает аудио.
+            </audio>
+        </div>
+        
         <p class="hint">Обновление займёт 5–10 минут</p>
     </div>
 
     <script>
-        // Обратный отсчёт до 5 минут (просто для атмосферы)
-        let timeLeft = 5 * 60;
-        const countdownEl = document.getElementById('countdown');
+        // Плейлист — позже заменишь на свои файлы
+        const tracks = [
+            { name: "Трек 1", file: "audio/track1.mp3" },
+            { name: "Трек 2", file: "audio/track2.mp3" },
+            { name: "Трек 3", file: "audio/track3.mp3" }
+        ];
         
-        function updateTimer() {
-            const min = Math.floor(timeLeft / 60);
-            const sec = timeLeft % 60;
-            countdownEl.textContent = `${min}:${sec.toString().padStart(2, '0')}`;
-            if (timeLeft > 0) timeLeft--;
+        const trackList = document.getElementById('track-list');
+        const audioPlayer = document.getElementById('audio-player');
+        let currentTrack = 0;
+        
+        // Создаём кнопки треков
+        tracks.forEach((track, index) => {
+            const btn = document.createElement('button');
+            btn.className = 'track-btn' + (index === 0 ? ' active' : '');
+            btn.textContent = track.name;
+            btn.onclick = () => {
+                document.querySelectorAll('.track-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                currentTrack = index;
+                audioPlayer.src = track.file;
+                audioPlayer.play();
+            };
+            trackList.appendChild(btn);
+        });
+        
+        // Загружаем первый трек
+        if (tracks.length > 0) {
+            audioPlayer.src = tracks[0].file;
         }
-        updateTimer();
-        setInterval(updateTimer, 1000);
     </script>
 </body>
 </html>
