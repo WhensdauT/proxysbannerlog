@@ -1,0 +1,51 @@
+/* Неоновые частицы */
+.particles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.particle {
+    position: absolute;
+    border-radius: 50%;
+    animation: float-up linear infinite;
+    opacity: 0;
+}
+
+@keyframes float-up {
+    0% {
+        transform: translateY(100vh) scale(0);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-100px) scale(1);
+        opacity: 0;
+    }
+}
+
+/* Разные цвета частиц */
+.particle.pink {
+    background: #ff2d95;
+    box-shadow: 0 0 10px #ff2d95, 0 0 20px #ff2d95;
+}
+
+.particle.blue {
+    background: #00d4ff;
+    box-shadow: 0 0 10px #00d4ff, 0 0 20px #00d4ff;
+}
+
+.particle.gold {
+    background: #ffd166;
+    box-shadow: 0 0 10px #ffd166, 0 0 20px #ffd166;
+}
