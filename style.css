@@ -359,9 +359,11 @@ footer a:hover {
 /* Карточки "Скоро" */
 .upcoming-container {
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     justify-content: center;
-    gap: 20px;
+    gap: 30px;
+    overflow-x: auto;
+    padding-bottom: 10px;
 }
 
 .upcoming-card {
