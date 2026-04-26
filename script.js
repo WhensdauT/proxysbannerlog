@@ -12,9 +12,10 @@ fetch('upcoming.json')
       const card = document.createElement('div');
       card.className = 'upcoming-card';
       
-      const lastBannerDate = new Date(entry.lastBannerDate);
+      const bannerDate = new Date(entry.lastBannerDate + 'T00:00:00');
       const today = new Date();
-      const diffTime = lastBannerDate - today;
+      today.setHours(0, 0, 0, 0);
+      const diffTime = bannerDate - today;
       const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
       
       card.innerHTML = `
@@ -35,7 +36,6 @@ fetch('upcoming.json')
       upcomingContainer.appendChild(card);
     });
     
-    // Таймер до ближайшего баннера
     if (upcomingData.length > 0) {
       startCountdown(upcomingData[0].lastBannerDate);
     }
@@ -47,7 +47,7 @@ fetch('upcoming.json')
 function startCountdown(targetDate) {
   function updateTimer() {
     const now = new Date();
-    const target = new Date(targetDate);
+    const target = new Date(targetDate + 'T00:00:00');
     const diff = target - now;
     
     if (diff <= 0) {
@@ -86,8 +86,12 @@ fetch('data.json')
     // Топ-5 по дням без рерана
     const top5 = [...data]
       .sort((a, b) => {
-        const daysA = Math.floor((new Date() - new Date(a.lastBannerDate)) / (1000 * 60 * 60 * 24));
-        const daysB = Math.floor((new Date() - new Date(b.lastBannerDate)) / (1000 * 60 * 60 * 24));
+        const bannerDateA = new Date(a.lastBannerDate + 'T00:00:00');
+        const bannerDateB = new Date(b.lastBannerDate + 'T00:00:00');
+        const today = new Date();
+        today.setHours(0, 0, 0, 0);
+        const daysA = Math.floor((today - bannerDateA) / (1000 * 60 * 60 * 24));
+        const daysB = Math.floor((today - bannerDateB) / (1000 * 60 * 60 * 24));
         return daysB - daysA;
       })
       .slice(0, 5);
@@ -96,7 +100,10 @@ fetch('data.json')
     const rankEmojis = ['🥇', '🥈', '🥉', '4', '5'];
     
     top5Container.innerHTML = top5.map((entry, i) => {
-      const days = Math.floor((new Date() - new Date(entry.lastBannerDate)) / (1000 * 60 * 60 * 24));
+      const bannerDate = new Date(entry.lastBannerDate + 'T00:00:00');
+      const today = new Date();
+      today.setHours(0, 0, 0, 0);
+      const days = Math.floor((today - bannerDate) / (1000 * 60 * 60 * 24));
       return `
         <div class="top5-item">
           <div class="top5-rank ${rankClasses[i]}">${rankEmojis[i]}</div>
@@ -109,22 +116,23 @@ fetch('data.json')
       `;
     }).join('');
     
-    // Сортировка и фильтрация
     function getFilteredAndSorted() {
       let filtered = [...data];
       
-      // Фильтр
       if (currentFilter !== 'all') {
         filtered = filtered.filter(e => e.banner.includes(currentFilter));
       }
       
-      // Сортировка
       if (currentSort === 'newest') {
         filtered.sort((a, b) => new Date(b.lastBannerDate) - new Date(a.lastBannerDate));
       } else if (currentSort === 'days') {
         filtered.sort((a, b) => {
-          const daysA = Math.floor((new Date() - new Date(a.lastBannerDate)) / (1000 * 60 * 60 * 24));
-          const daysB = Math.floor((new Date() - new Date(b.lastBannerDate)) / (1000 * 60 * 60 * 24));
+          const bannerDateA = new Date(a.lastBannerDate + 'T00:00:00');
+          const bannerDateB = new Date(b.lastBannerDate + 'T00:00:00');
+          const today = new Date();
+          today.setHours(0, 0, 0, 0);
+          const daysA = Math.floor((today - bannerDateA) / (1000 * 60 * 60 * 24));
+          const daysB = Math.floor((today - bannerDateB) / (1000 * 60 * 60 * 24));
           return daysB - daysA;
         });
       } else if (currentSort === 'name') {
@@ -150,7 +158,11 @@ fetch('data.json')
       filtered.forEach(entry => {
         const card = document.createElement('div');
         card.className = 'card';
-        const days = Math.floor((new Date() - new Date(entry.lastBannerDate)) / (1000 * 60 * 60 * 24));
+        
+        const bannerDate = new Date(entry.lastBannerDate + 'T00:00:00');
+        const today = new Date();
+        today.setHours(0, 0, 0, 0);
+        const days = Math.floor((today - bannerDate) / (1000 * 60 * 60 * 24));
         
         card.innerHTML = `
           <img src="${entry.image}" alt="${entry.agent}" class="card-img" loading="lazy" onerror="this.src='https://via.placeholder.com/400x300/1a1a1a/333?text=No+Image'">
@@ -172,16 +184,15 @@ fetch('data.json')
     
     renderCards();
     
-    // Поиск
-    searchInput.addEventListener('input', (e) => renderCards(e.target.value));
+    searchInput.addEventListener('input', (e) => {
+      renderCards(e.target.value);
+    });
     
-    // Сортировка
     sortSelect.addEventListener('change', (e) => {
       currentSort = e.target.value;
       renderCards(searchInput.value);
     });
     
-    // Фильтры
     filterBtns.forEach(btn => {
       btn.addEventListener('click', () => {
         filterBtns.forEach(b => b.classList.remove('active'));
@@ -195,7 +206,10 @@ fetch('data.json')
     console.error('Ошибка:', err);
     document.getElementById('banner-container').innerHTML = '<p style="text-align:center;padding:40px;color:#777;">Ошибка загрузки</p>';
   });
-// Кнопка "Наверх"
+
+// =====================
+// 4. Кнопка "Наверх"
+// =====================
 const scrollTopBtn = document.getElementById('scroll-top');
 
 window.addEventListener('scroll', () => {
