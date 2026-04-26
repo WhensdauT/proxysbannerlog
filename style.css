@@ -10,27 +10,35 @@ body {
     font-family: 'Inter', sans-serif;
     line-height: 1.6;
 }
+
 /* Неоновая сетка на фоне */
-body::before {
+body::after {
     content: '';
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: -1;
+    z-index: 9999;
     background-image: 
-        linear-gradient(rgba(0, 212, 255, 0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0, 212, 255, 0.03) 1px, transparent 1px);
-    background-size: 60px 60px;
-    animation: grid-shift 20s linear infinite;
+        linear-gradient(rgba(0, 212, 255, 0.15) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 212, 255, 0.15) 1px, transparent 1px);
+    background-size: 80px 80px;
+    animation: grid-shift 30s linear infinite;
     pointer-events: none;
 }
 
 @keyframes grid-shift {
     0% { background-position: 0 0; }
-    100% { background-position: 60px 60px; }
+    100% { background-position: 80px 80px; }
 }
+
+/* Поднимаем контент над сеткой */
+.cover, .highlights, .timer-section, .filter-container, .controls, .container, .donate-section, .share-section, footer {
+    position: relative;
+    z-index: 10000;
+}
+
 /* Обложка */
 .cover {
     position: relative;
@@ -130,6 +138,38 @@ body::before {
 
 .search-input::placeholder {
     color: #666;
+}
+
+/* Кнопка "Наверх" */
+.scroll-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background: #1a1a1a;
+    border: 2px solid rgba(0, 212, 255, 0.4);
+    border-radius: 50%;
+    color: #00d4ff;
+    font-size: 1.3rem;
+    cursor: pointer;
+    z-index: 99999;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s;
+    box-shadow: 0 0 15px rgba(0, 212, 255, 0.2);
+}
+
+.scroll-top.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.scroll-top:hover {
+    background: #2d2d2d;
+    border-color: #ff2d95;
+    color: #ff2d95;
+    box-shadow: 0 0 20px rgba(255, 45, 149, 0.5);
 }
 
 /* Сетка карточек */
@@ -571,35 +611,4 @@ footer a:hover {
     .upcoming-card .card-img {
         height: 350px;
     }
-}
-/* Кнопка "Наверх" */
-.scroll-top {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    width: 50px;
-    height: 50px;
-    background: #1a1a1a;
-    border: 2px solid rgba(0, 212, 255, 0.4);
-    border-radius: 50%;
-    color: #00d4ff;
-    font-size: 1.3rem;
-    cursor: pointer;
-    z-index: 999;
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.3s;
-    box-shadow: 0 0 15px rgba(0, 212, 255, 0.2);
-}
-
-.scroll-top.show {
-    opacity: 1;
-    visibility: visible;
-}
-
-.scroll-top:hover {
-    background: #2d2d2d;
-    border-color: #ff2d95;
-    color: #ff2d95;
-    box-shadow: 0 0 20px rgba(255, 45, 149, 0.5);
 }
