@@ -24,19 +24,54 @@
         <p class="subtitle-small">Автоматический счётчик дней с последнего баннера каждого персонажа</p>
     </div>
 
-    <!-- Секция "Скоро" -->
-    <div class="upcoming-section">
-        <h2 class="section-title">🔥 Скоро в баннерах 🔥</h2>
-        <div class="upcoming-container" id="upcoming-container"></div>
+    <!-- Секция "Скоро" и "Топ" -->
+    <div class="highlights">
+        <!-- Левая колонка: Скоро -->
+        <div class="highlights-left">
+            <h2 class="section-title">🔥 Скоро в баннерах</h2>
+            <div class="upcoming-container" id="upcoming-container"></div>
+        </div>
+
+        <!-- Правая колонка: Топ-5 -->
+        <div class="highlights-right">
+            <h2 class="section-title">⏳ Дольше всех без рерана</h2>
+            <div class="top5-container" id="top5-container"></div>
+        </div>
     </div>
 
-    <!-- Поиск -->
-    <div class="search-container">
-        <input type="text" id="search-input" placeholder="🔍 Введите имя персонажа..." class="search-input">
+    <!-- Таймер -->
+    <div class="timer-section" id="timer-section">
+        <p class="timer-label">До следующего баннера</p>
+        <div class="timer" id="countdown">
+            <span id="days">0</span>д
+            <span id="hours">0</span>ч
+            <span id="minutes">0</span>м
+        </div>
+        <!-- Ссылка на график банов -->
+    </div>
+
+    <!-- Фильтры -->
+    <div class="filter-container">
+        <button class="filter-btn active" data-filter="all">Все</button>
+        <button class="filter-btn" data-filter="Дебют">Дебют</button>
+        <button class="filter-btn" data-filter="Реран">Реран</button>
+    </div>
+
+    <!-- Поиск и сортировка -->
+    <div class="controls">
+        <div class="search-container">
+            <input type="text" id="search-input" placeholder="🔍 Введите имя персонажа..." class="search-input">
+        </div>
+        <div class="sort-container">
+            <select id="sort-select" class="sort-select">
+                <option value="newest">По новизне</option>
+                <option value="days">По дням без рерана</option>
+                <option value="name">По имени (А-Я)</option>
+            </select>
+        </div>
     </div>
 
     <!-- Все персонажи -->
-    <h2 class="section-title">📀 Все персонажи</h2>
     <div class="container" id="banner-container"></div>
 
     <div class="donate-section">
@@ -45,9 +80,17 @@
         </a>
     </div>
 
+    <!-- Кнопки "Поделиться" -->
+    <div class="share-section">
+        <p>Поделиться:</p>
+        <a href="https://t.me/share/url?url=https://whensdaut.github.io/proxysbannerlog/" target="_blank" class="share-btn tg">Telegram</a>
+        <a href="https://vk.com/share.php?url=https://whensdaut.github.io/proxysbannerlog/" target="_blank" class="share-btn vk">ВКонтакте</a>
+        <button onclick="navigator.clipboard.writeText('https://whensdaut.github.io/proxysbannerlog/')" class="share-btn copy">📋 Скопировать</button>
+    </div>
+
     <footer>
         <p>Данные обновляются автоматически • Неофициальный фанатский проект</p>
-        <p>Сайт создан <a href="https://github.com/WhensdauT" target="_blank">WhensdauT</a></p>
+        <p>Сайт создан <a href="https://github.com/WhensdauT" target="_blank">WhensdauT</a> • <a href="about.html">О проекте</a></p>
     </footer>
 
     <script src="script.js"></script>
