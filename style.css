@@ -83,6 +83,35 @@ body {
     margin-top: 5px;
 }
 
+/* Поиск */
+.search-container {
+    max-width: 600px;
+    margin: 30px auto 10px;
+    padding: 0 20px;
+}
+
+.search-input {
+    width: 100%;
+    padding: 15px 25px;
+    background: #1a1a1a;
+    border: 2px solid rgba(0, 212, 255, 0.3);
+    border-radius: 50px;
+    color: #ffffff;
+    font-family: 'Inter', sans-serif;
+    font-size: 1.1rem;
+    outline: none;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.search-input:focus {
+    border-color: #00d4ff;
+    box-shadow: 0 0 20px rgba(0, 212, 255, 0.2);
+}
+
+.search-input::placeholder {
+    color: #666;
+}
+
 /* Сетка карточек */
 .container {
     display: grid;
@@ -167,6 +196,39 @@ body {
     margin-bottom: 2px;
 }
 
+/* Нет результатов */
+.no-results {
+    text-align: center;
+    padding: 60px;
+    color: #777;
+    font-size: 1.3rem;
+    grid-column: 1 / -1;
+}
+
+/* Кнопка доната */
+.donate-section {
+    text-align: center;
+    padding: 30px;
+}
+
+.donate-button {
+    display: inline-block;
+    background: linear-gradient(135deg, #ff2d95, #00d4ff);
+    color: #fff;
+    padding: 15px 40px;
+    border-radius: 50px;
+    font-family: 'Russo One', sans-serif;
+    font-size: 1.2rem;
+    text-decoration: none;
+    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 0 20px rgba(255, 45, 149, 0.4);
+}
+
+.donate-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 30px rgba(0, 212, 255, 0.6);
+}
+
 /* Футер */
 footer {
     text-align: center;
@@ -174,6 +236,15 @@ footer {
     color: #555;
     font-size: 0.85rem;
     border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+footer a {
+    color: #00d4ff;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
 }
 
 /* Адаптация */
