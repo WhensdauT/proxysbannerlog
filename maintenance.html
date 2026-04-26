@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тех.работы | Proxy's Banner Log</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛠️</text></svg>">
+    <link href="https://fonts.googleapis.com/css2?family=Russo+One&family=Inter:wght@400;600&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background: #0f0f0f;
+            color: #fff;
+            font-family: 'Inter', sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            text-align: center;
+        }
+        .maintenance-box {
+            background: #1a1a1a;
+            padding: 60px 40px;
+            border-radius: 24px;
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            box-shadow: 0 0 40px rgba(0, 212, 255, 0.1);
+            max-width: 500px;
+        }
+        .maintenance-icon { font-size: 4rem; margin-bottom: 20px; }
+        .maintenance-title {
+            font-family: 'Russo One', sans-serif;
+            font-size: 2rem;
+            color: #00d4ff;
+            text-shadow: 0 0 10px #00d4ff;
+            margin-bottom: 15px;
+        }
+        .maintenance-text { color: #9b9b9b; font-size: 1.1rem; margin-bottom: 10px; }
+        .countdown {
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 2.5rem;
+            color: #ff2d95;
+            text-shadow: 0 0 10px rgba(255, 45, 149, 0.6);
+            margin: 20px 0;
+        }
+        .hint { color: #555; font-size: 0.85rem; margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <div class="maintenance-box">
+        <div class="maintenance-icon">🛠️</div>
+        <h1 class="maintenance-title">Технические работы</h1>
+        <p class="maintenance-text">Сайт обновляется — добавляем новые баннеры!</p>
+        <p class="maintenance-text">Пожалуйста, подождите немного.</p>
+        <div class="countdown" id="countdown">--:--</div>
+        <p class="hint">Обновление займёт 5–10 минут</p>
+    </div>
+
+    <script>
+        // Обратный отсчёт до 5 минут (просто для атмосферы)
+        let timeLeft = 5 * 60;
+        const countdownEl = document.getElementById('countdown');
+        
+        function updateTimer() {
+            const min = Math.floor(timeLeft / 60);
+            const sec = timeLeft % 60;
+            countdownEl.textContent = `${min}:${sec.toString().padStart(2, '0')}`;
+            if (timeLeft > 0) timeLeft--;
+        }
+        updateTimer();
+        setInterval(updateTimer, 1000);
+    </script>
+</body>
+</html>
