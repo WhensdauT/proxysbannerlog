@@ -18,8 +18,11 @@ fetch('history.json')
       const renderCharacters = (characters) => {
         return characters.map(c => `
           <div class="character-row">
-            <span class="character-type ${c.type === 'Дебют' ? 'debut' : 'rerun'}">${c.type}</span>
-            <span class="character-name-history">${c.name}</span>
+            <img src="${c.image || ''}" alt="${c.name}" class="history-char-img" onerror="this.style.display='none'">
+            <div class="character-info-history">
+              <span class="character-type ${c.type === 'Дебют' ? 'debut' : 'rerun'}">${c.type}</span>
+              <span class="character-name-history">${c.name}</span>
+            </div>
           </div>
         `).join('');
       };
