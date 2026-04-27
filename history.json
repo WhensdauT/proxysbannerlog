@@ -34,8 +34,8 @@
       "startDate": "2026-04-15",
       "endDate": "2026-04-22",
       "characters": [
-        { "name": "Cissia", "type": "Дебют", "image": "images/Cissia.png" },
-        { "name": "Seed", "type": "Реран", "image": "images/Seed.png" }
+        { "name": "Cissia", "type": "Дебют", "image": "images/cissia.png" },
+        { "name": "Seed", "type": "Реран", "image": "images/seed.png" }
       ]
     }
   },
@@ -77,7 +77,7 @@
       "endDate": "2026-02-05",
       "characters": [
         { "name": "Alice", "type": "Реран", "image": "images/Alice.png" },
-        { "name": "Soldier 0 - Anby", "type": "Реран", "image": "images/Soldier 0 Anby.png" }
+        { "name": "Soldier 0 - Anby", "type": "Реран", "image": "images/Soldier 0 - Anby.png" }
       ]
     }
   },
@@ -111,7 +111,7 @@
       "endDate": "2025-11-05",
       "characters": [
         { "name": "Lucia", "type": "Дебют", "image": "images/Lucia.png" },
-        { "name": "Vivian", "type": "Реран", "image": "images/Vivian.png" }
+        { "name": "Vivian", "type": "Реран", "image": "images/vivian.png" }
       ]
     },
     "phase2": {
@@ -131,7 +131,7 @@
       "startDate": "2025-09-03",
       "endDate": "2025-09-24",
       "characters": [
-        { "name": "Seed", "type": "Дебют", "image": "images/Seed.png" },
+        { "name": "Seed", "type": "Дебют", "image": "images/seed.png" },
         { "name": "Trigger", "type": "Реран", "image": "images/Trigger.png" }
       ]
     },
@@ -160,7 +160,7 @@
       "startDate": "2025-08-06",
       "endDate": "2025-09-02",
       "characters": [
-        { "name": "Alice", "type": "Дебют", "image": "images/Alice.png" },
+        { "name": "Alice", "type": "Дебют", "image": "images/alice.png" },
         { "name": "Yanagi", "type": "Реран", "image": "images/Yanagi.png" }
       ]
     }
@@ -194,7 +194,7 @@
       "startDate": "2025-04-23",
       "endDate": "2025-05-14",
       "characters": [
-        { "name": "Vivian", "type": "Дебют", "image": "images/Vivian.png" },
+        { "name": "Vivian", "type": "Дебют", "image": "images/vivian.png" },
         { "name": "Jane Doe", "type": "Реран", "image": "images/Jane Doe.png" }
       ]
     },
@@ -215,7 +215,7 @@
       "startDate": "2025-03-12",
       "endDate": "2025-04-02",
       "characters": [
-        { "name": "Soldier 0 - Anby", "type": "Дебют", "image": "images/Soldier 0 Anby.png" },
+        { "name": "Soldier 0 - Anby", "type": "Дебют", "image": "images/Soldier 0 - Anby.png" },
         { "name": "Burnice", "type": "Реран", "image": "images/Burnice.png" }
       ]
     },
