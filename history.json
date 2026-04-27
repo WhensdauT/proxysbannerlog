@@ -7,14 +7,14 @@
       "startDate": "2026-04-23",
       "endDate": "2026-05-06",
       "characters": [
-        { "name": "Promeia", "type": "Дебют", "image": "images/show (32).png" }
+        { "name": "Promeia", "type": "Дебют", "image": "images/Promeia.png" }
       ]
     },
     "phase2": {
       "startDate": "2026-05-07",
       "endDate": "2026-05-14",
       "characters": [
-        { "name": "Starlight Billy", "type": "Реран", "image": "images/show (34).png" }
+        { "name": "Starlight Billy", "type": "Реран", "image": "images/Starlight Billy.png" }
       ]
     }
   },
@@ -26,16 +26,16 @@
       "startDate": "2026-03-24",
       "endDate": "2026-04-15",
       "characters": [
-        { "name": "Nangong Yu", "type": "Дебют", "image": "images/show (1).png" },
-        { "name": "Yidhari", "type": "Реран", "image": "images/show (9).png" }
+        { "name": "Nangong Yu", "type": "Дебют", "image": "images/Nangong Yu.png" },
+        { "name": "Yidhari", "type": "Реран", "image": "images/Yidhari.png" }
       ]
     },
     "phase2": {
       "startDate": "2026-04-15",
       "endDate": "2026-04-22",
       "characters": [
-        { "name": "Cissia", "type": "Дебют", "image": "images/show (33).png" },
-        { "name": "Seed", "type": "Реран", "image": "images/show (10).png" }
+        { "name": "Cissia", "type": "Дебют", "image": "images/Cissia.png" },
+        { "name": "Seed", "type": "Реран", "image": "images/Seed.png" }
       ]
     }
   },
@@ -47,16 +47,16 @@
       "startDate": "2026-02-06",
       "endDate": "2026-03-04",
       "characters": [
-        { "name": "Sunna", "type": "Дебют", "image": "images/show (2).png" },
-        { "name": "Yixuan", "type": "Реран", "image": "images/show (14).png" }
+        { "name": "Sunna", "type": "Дебют", "image": "images/Sunna.png" },
+        { "name": "Yixuan", "type": "Реран", "image": "images/Yixuan.png" }
       ]
     },
     "phase2": {
       "startDate": "2026-03-04",
       "endDate": "2026-03-23",
       "characters": [
-        { "name": "Aria", "type": "Дебют", "image": "images/show (3).png" },
-        { "name": "Yuzuha", "type": "Реран", "image": "images/show (12).png" }
+        { "name": "Aria", "type": "Дебют", "image": "images/Aria.png" },
+        { "name": "Yuzuha", "type": "Реран", "image": "images/Yuzuha.png" }
       ]
     }
   },
@@ -68,16 +68,16 @@
       "startDate": "2025-12-29",
       "endDate": "2026-02-05",
       "characters": [
-        { "name": "Ye Shunguang", "type": "Дебют", "image": "images/show (5).png" },
-        { "name": "Zhao", "type": "Дебют", "image": "images/show (4).png" }
+        { "name": "Ye Shunguang", "type": "Дебют", "image": "images/Ye Shunguang.png" },
+        { "name": "Zhao", "type": "Дебют", "image": "images/Zhao.png" }
       ]
     },
     "phase2": {
       "startDate": "2026-01-21",
       "endDate": "2026-02-05",
       "characters": [
-        { "name": "Alice", "type": "Реран", "image": "images/show (13).png" },
-        { "name": "Soldier 0 - Anby", "type": "Реран", "image": "images/show (18).png" }
+        { "name": "Alice", "type": "Реран", "image": "images/Alice.png" },
+        { "name": "Soldier 0 - Anby", "type": "Реран", "image": "images/Soldier 0 Anby.png" }
       ]
     }
   },
@@ -89,16 +89,16 @@
       "startDate": "2025-11-26",
       "endDate": "2025-12-17",
       "characters": [
-        { "name": "Dialyn", "type": "Дебют", "image": "images/show (6).png" },
-        { "name": "Hugo", "type": "Реран", "image": "images/show (17).png" }
+        { "name": "Dialyn", "type": "Дебют", "image": "images/Dialyn.png" },
+        { "name": "Hugo", "type": "Реран", "image": "images/Hugo.png" }
       ]
     },
     "phase2": {
       "startDate": "2025-12-17",
       "endDate": "2025-12-29",
       "characters": [
-        { "name": "Banyue", "type": "Дебют", "image": "images/show (7).png" },
-        { "name": "Ellen", "type": "Реран", "image": "images/show (30).png" }
+        { "name": "Banyue", "type": "Дебют", "image": "images/Banyue.png" },
+        { "name": "Ellen", "type": "Реран", "image": "images/Ellen.png" }
       ]
     }
   },
@@ -110,16 +110,16 @@
       "startDate": "2025-10-15",
       "endDate": "2025-11-05",
       "characters": [
-        { "name": "Lucia", "type": "Дебют", "image": "images/show (8).png" },
-        { "name": "Vivian", "type": "Реран", "image": "images/show (16).png" }
+        { "name": "Lucia", "type": "Дебют", "image": "images/Lucia.png" },
+        { "name": "Vivian", "type": "Реран", "image": "images/Vivian.png" }
       ]
     },
     "phase2": {
       "startDate": "2025-11-05",
       "endDate": "2025-11-25",
       "characters": [
-        { "name": "Ju Fufu", "type": "Дебют", "image": "images/show (15).png" },
-        { "name": "Caesar", "type": "Реран", "image": "images/show (26).png" }
+        { "name": "Ju Fufu", "type": "Дебют", "image": "images/Ju Fufu.png" },
+        { "name": "Yidhari", "type": "Дебют", "image": "images/Yidhari.png" }
       ]
     }
   },
@@ -131,16 +131,16 @@
       "startDate": "2025-09-03",
       "endDate": "2025-09-24",
       "characters": [
-        { "name": "Seed", "type": "Дебют", "image": "images/show (10).png" },
-        { "name": "Trigger", "type": "Реран", "image": "images/show (19).png" }
+        { "name": "Seed", "type": "Дебют", "image": "images/Seed.png" },
+        { "name": "Trigger", "type": "Реран", "image": "images/Trigger.png" }
       ]
     },
     "phase2": {
       "startDate": "2025-09-24",
       "endDate": "2025-10-14",
       "characters": [
-        { "name": "Orphie", "type": "Дебют", "image": "images/show (11).png" },
-        { "name": "Evelyn", "type": "Реран", "image": "images/show (21).png" }
+        { "name": "Orphie", "type": "Дебют", "image": "images/Orphie.png" },
+        { "name": "Evelyn", "type": "Реран", "image": "images/Evelyn.png" }
       ]
     }
   },
@@ -152,16 +152,16 @@
       "startDate": "2025-07-16",
       "endDate": "2025-08-06",
       "characters": [
-        { "name": "Yuzuha", "type": "Дебют", "image": "images/show (12).png" },
-        { "name": "Miyabi", "type": "Реран", "image": "images/show (22).png" }
+        { "name": "Yuzuha", "type": "Дебют", "image": "images/Yuzuha.png" },
+        { "name": "Miyabi", "type": "Реран", "image": "images/Miyabi.png" }
       ]
     },
     "phase2": {
       "startDate": "2025-08-06",
       "endDate": "2025-09-02",
       "characters": [
-        { "name": "Alice", "type": "Дебют", "image": "images/show (13).png" },
-        { "name": "Yanagi", "type": "Реран", "image": "images/show (24).png" }
+        { "name": "Alice", "type": "Дебют", "image": "images/Alice.png" },
+        { "name": "Yanagi", "type": "Реран", "image": "images/Yanagi.png" }
       ]
     }
   },
@@ -173,16 +173,16 @@
       "startDate": "2025-06-06",
       "endDate": "2025-06-25",
       "characters": [
-        { "name": "Yixuan", "type": "Дебют", "image": "images/show (14).png" },
-        { "name": "Astra Yao", "type": "Реран", "image": "images/show (20).png" }
+        { "name": "Yixuan", "type": "Дебют", "image": "images/Yixuan.png" },
+        { "name": "Astra Yao", "type": "Реран", "image": "images/Astra Yao.png" }
       ]
     },
     "phase2": {
       "startDate": "2025-06-25",
       "endDate": "2025-07-15",
       "characters": [
-        { "name": "Ju Fufu", "type": "Реран", "image": "images/show (15).png" },
-        { "name": "Caesar", "type": "Реран", "image": "images/show (26).png" }
+        { "name": "Ju Fufu", "type": "Реран", "image": "images/Ju Fufu.png" },
+        { "name": "Caesar", "type": "Реран", "image": "images/Caesar.png" }
       ]
     }
   },
@@ -194,16 +194,16 @@
       "startDate": "2025-04-23",
       "endDate": "2025-05-14",
       "characters": [
-        { "name": "Vivian", "type": "Дебют", "image": "images/show (16).png" },
-        { "name": "Jane Doe", "type": "Реран", "image": "images/show (29).png" }
+        { "name": "Vivian", "type": "Дебют", "image": "images/Vivian.png" },
+        { "name": "Jane Doe", "type": "Реран", "image": "images/Jane Doe.png" }
       ]
     },
     "phase2": {
       "startDate": "2025-05-14",
       "endDate": "2025-06-05",
       "characters": [
-        { "name": "Hugo", "type": "Дебют", "image": "images/show (17).png" },
-        { "name": "Lighter", "type": "Реран", "image": "images/show (25).png" }
+        { "name": "Hugo", "type": "Дебют", "image": "images/Hugo.png" },
+        { "name": "Lighter", "type": "Реран", "image": "images/Lighter.png" }
       ]
     }
   },
@@ -215,16 +215,16 @@
       "startDate": "2025-03-12",
       "endDate": "2025-04-02",
       "characters": [
-        { "name": "Soldier 0 - Anby", "type": "Дебют", "image": "images/show (18).png" },
-        { "name": "Burnice", "type": "Реран", "image": "images/show (27).png" }
+        { "name": "Soldier 0 - Anby", "type": "Дебют", "image": "images/Soldier 0 Anby.png" },
+        { "name": "Burnice", "type": "Реран", "image": "images/Burnice.png" }
       ]
     },
     "phase2": {
       "startDate": "2025-04-02",
       "endDate": "2025-04-22",
       "characters": [
-        { "name": "Trigger", "type": "Дебют", "image": "images/show (19).png" },
-        { "name": "Zhu Yuan", "type": "Реран", "image": "images/show (31).png" }
+        { "name": "Trigger", "type": "Дебют", "image": "images/Trigger.png" },
+        { "name": "Zhu Yuan", "type": "Реран", "image": "images/Zhu Yuan.png" }
       ]
     }
   },
@@ -236,16 +236,16 @@
       "startDate": "2025-01-22",
       "endDate": "2025-02-12",
       "characters": [
-        { "name": "Astra Yao", "type": "Дебют", "image": "images/show (20).png" },
-        { "name": "Ellen", "type": "Реран", "image": "images/show (30).png" }
+        { "name": "Astra Yao", "type": "Дебют", "image": "images/Astra Yao.png" },
+        { "name": "Ellen", "type": "Реран", "image": "images/Ellen.png" }
       ]
     },
     "phase2": {
       "startDate": "2025-02-12",
       "endDate": "2025-03-11",
       "characters": [
-        { "name": "Evelyn", "type": "Дебют", "image": "images/show (21).png" },
-        { "name": "Qingyi", "type": "Реран", "image": "images/show (28).png" }
+        { "name": "Evelyn", "type": "Дебют", "image": "images/Evelyn.png" },
+        { "name": "Qingyi", "type": "Реран", "image": "images/Qingyi.png" }
       ]
     }
   },
@@ -257,14 +257,14 @@
       "startDate": "2024-12-18",
       "endDate": "2025-01-21",
       "characters": [
-        { "name": "Miyabi", "type": "Дебют", "image": "images/show (22).png" }
+        { "name": "Miyabi", "type": "Дебют", "image": "images/Miyabi.png" }
       ]
     },
     "phase2": {
       "startDate": "2024-12-18",
       "endDate": "2025-01-21",
       "characters": [
-        { "name": "Harumasa", "type": "Дебют", "image": "images/show (23).png" }
+        { "name": "Harumasa", "type": "Дебют", "image": "images/Harumasa.png" }
       ]
     }
   },
@@ -276,14 +276,14 @@
       "startDate": "2024-11-06",
       "endDate": "2024-11-27",
       "characters": [
-        { "name": "Yanagi", "type": "Дебют", "image": "images/show (24).png" }
+        { "name": "Yanagi", "type": "Дебют", "image": "images/Yanagi.png" }
       ]
     },
     "phase2": {
       "startDate": "2024-11-27",
       "endDate": "2024-12-17",
       "characters": [
-        { "name": "Lighter", "type": "Дебют", "image": "images/show (25).png" }
+        { "name": "Lighter", "type": "Дебют", "image": "images/Lighter.png" }
       ]
     }
   },
@@ -295,14 +295,14 @@
       "startDate": "2024-09-25",
       "endDate": "2024-10-16",
       "characters": [
-        { "name": "Caesar", "type": "Дебют", "image": "images/show (26).png" }
+        { "name": "Caesar", "type": "Дебют", "image": "images/Caesar.png" }
       ]
     },
     "phase2": {
       "startDate": "2024-10-16",
       "endDate": "2024-11-05",
       "characters": [
-        { "name": "Burnice", "type": "Дебют", "image": "images/show (27).png" }
+        { "name": "Burnice", "type": "Дебют", "image": "images/Burnice.png" }
       ]
     }
   },
@@ -314,14 +314,14 @@
       "startDate": "2024-08-14",
       "endDate": "2024-09-04",
       "characters": [
-        { "name": "Qingyi", "type": "Дебют", "image": "images/show (28).png" }
+        { "name": "Qingyi", "type": "Дебют", "image": "images/Qingyi.png" }
       ]
     },
     "phase2": {
       "startDate": "2024-09-04",
       "endDate": "2024-09-24",
       "characters": [
-        { "name": "Jane Doe", "type": "Дебют", "image": "images/show (29).png" }
+        { "name": "Jane Doe", "type": "Дебют", "image": "images/Jane Doe.png" }
       ]
     }
   },
@@ -333,14 +333,14 @@
       "startDate": "2024-07-04",
       "endDate": "2024-07-24",
       "characters": [
-        { "name": "Ellen", "type": "Дебют", "image": "images/show (30).png" }
+        { "name": "Ellen", "type": "Дебют", "image": "images/Ellen.png" }
       ]
     },
     "phase2": {
       "startDate": "2024-07-24",
       "endDate": "2024-08-13",
       "characters": [
-        { "name": "Zhu Yuan", "type": "Дебют", "image": "images/show (31).png" }
+        { "name": "Zhu Yuan", "type": "Дебют", "image": "images/Zhu Yuan.png" }
       ]
     }
   }
