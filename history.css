@@ -1,0 +1,110 @@
+.history-page {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+    color: #ffffff;
+}
+
+.back-link {
+    color: #00d4ff;
+    text-decoration: none;
+    font-size: 1.1rem;
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+.back-link:hover {
+    text-decoration: underline;
+}
+
+/* Версия */
+.version-block {
+    margin-bottom: 40px;
+    background: #1a1a1a;
+    border-radius: 20px;
+    padding: 25px;
+    border: 1px solid rgba(0, 212, 255, 0.2);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+}
+
+.version-header {
+    font-family: 'Russo One', sans-serif;
+    font-size: 1.8rem;
+    color: #00d4ff;
+    text-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+    margin-bottom: 5px;
+}
+
+.version-dates {
+    color: #777;
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+}
+
+/* Фазы */
+.phases {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.phase {
+    background: #0f0f0f;
+    border-radius: 16px;
+    padding: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.phase-title {
+    font-family: 'Russo One', sans-serif;
+    font-size: 1.1rem;
+    color: #ff2d95;
+    margin-bottom: 5px;
+}
+
+.phase-dates {
+    color: #666;
+    font-size: 0.8rem;
+    margin-bottom: 15px;
+}
+
+.character-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.character-row:last-child {
+    border-bottom: none;
+}
+
+.character-type {
+    font-size: 0.75rem;
+    padding: 3px 10px;
+    border-radius: 12px;
+    font-weight: 600;
+}
+
+.character-type.debut {
+    background: rgba(0, 212, 255, 0.15);
+    color: #00d4ff;
+}
+
+.character-type.rerun {
+    background: rgba(255, 45, 149, 0.15);
+    color: #ff2d95;
+}
+
+.character-name-history {
+    font-weight: 600;
+    color: #ffffff;
+}
+
+/* Адаптив */
+@media (max-width: 768px) {
+    .phases {
+        grid-template-columns: 1fr;
+    }
+}
