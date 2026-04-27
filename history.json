@@ -76,7 +76,7 @@
       "startDate": "2026-01-21",
       "endDate": "2026-02-05",
       "characters": [
-        { "name": "Alice", "type": "Реран", "image": "images/Alice.png" },
+        { "name": "Alice", "type": "Реран", "image": "images/alice.png" },
         { "name": "Soldier 0 - Anby", "type": "Реран", "image": "images/Soldier 0 - Anby.png" }
       ]
     }
