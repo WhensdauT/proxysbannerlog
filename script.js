@@ -223,3 +223,12 @@ window.addEventListener('scroll', () => {
 scrollTopBtn.addEventListener('click', () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 });
+// =====================
+// 5. Кнопка "История баннеров"
+// =====================
+const historyBtnContainer = document.createElement('div');
+historyBtnContainer.className = 'history-btn-wrapper';
+historyBtnContainer.innerHTML = '<a href="history.html" class="history-btn">📜 История баннеров</a>';
+
+const highlightsSection = document.querySelector('.highlights');
+highlightsSection.insertAdjacentElement('afterend', historyBtnContainer);
