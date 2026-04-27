@@ -34,7 +34,7 @@ body::after {
 }
 
 /* Поднимаем контент над сеткой */
-.cover, .highlights, .timer-section, .filter-container, .controls, .container, .donate-section, .share-section, footer {
+.cover, .highlights, .timer-section, .filter-container, .controls, .container, .donate-section, .share-section, footer, .history-btn-wrapper {
     position: relative;
     z-index: 10000;
 }
@@ -592,95 +592,14 @@ footer a:hover {
     color: #ff2d95;
 }
 
-/* Адаптация */
-@media (max-width: 768px) {
-    .neon-title {
-        font-size: 2.5rem;
-    }
-    .container {
-        padding: 20px;
-        gap: 15px;
-        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    }
-    .card-img {
-        height: 220px;
-    }
-    .upcoming-card {
-        width: 100%;
-    }
-    .upcoming-card .card-img {
-        height: 350px;
-    }
-}
-/* Кнопка истории */
-.history-btn {
-    position: fixed;
-    bottom: 100px;  /* Чуть выше кнопки "Наверх" (которая на 30px) */
-    right: 30px;
-    width: 50px;
-    height: 50px;
-    background: #1a1a1a;
-    border: 2px solid rgba(0, 212, 255, 0.4);
-    border-radius: 50%;
-    color: #00d4ff;
-    font-size: 1.6rem;
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    z-index: 99998;
-    transition: all 0.3s;
-    box-shadow: 0 0 15px rgba(0, 212, 255, 0.2);
-}
-
-.history-btn:hover {
-    background: #2d2d2d;
-    border-color: #ff2d95;
-    color: #ff2d95;
-    box-shadow: 0 0 20px rgba(255, 45, 149, 0.5);
-    transform: scale(1.05);
-}
-.history-link {
-    display: inline-block;
-    background: #1a1a1a;
-    border: 1px solid rgba(0, 212, 255, 0.4);
-    color: #00d4ff;
-    padding: 8px 20px;
-    border-radius: 30px;
-    font-size: 0.85rem;
-    text-decoration: none;
-    transition: all 0.3s;
-}
-.history-link:hover {
-    background: #2d2d2d;
-    border-color: #ff2d95;
-    color: #ff2d95;
-    box-shadow: 0 0 10px rgba(255, 45, 149, 0.3);
-}
-/* Кнопка перехода на историю баннеров */
-.history-link {
-    display: inline-block;
-    background: #1a1a1a;
-    border: 1px solid rgba(201, 160, 61, 0.4);
-    color: #c9a03d;
-    padding: 8px 24px;
-    border-radius: 40px;
-    font-size: 0.9rem;
-    font-weight: 500;
-    text-decoration: none;
-    transition: all 0.3s;
-    font-family: 'Inter', sans-serif;
-}
-
-.history-link:hover {
-    background: #c9a03d;
-    color: #ffffff;
-    border-color: #c9a03d;
-    box-shadow: 0 4px 12px rgba(201, 160, 61, 0.3);
-    transform: translateX(3px);
-}
 /* Кнопка "История баннеров" */
+.history-btn-wrapper {
+    text-align: center;
+    padding: 20px 0 10px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
 .history-btn {
     display: inline-block;
     background: #1a1a1a;
@@ -702,10 +621,24 @@ footer a:hover {
     box-shadow: 0 0 30px rgba(255, 45, 149, 0.5);
     transform: scale(1.05);
 }
-/* Контейнер для кнопки истории */
-.history-btn-wrapper {
-    text-align: center;
-    padding: 20px 0 0 0;
-    width: 100%;
-    clear: both;
+
+/* Адаптация */
+@media (max-width: 768px) {
+    .neon-title {
+        font-size: 2.5rem;
+    }
+    .container {
+        padding: 20px;
+        gap: 15px;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    }
+    .card-img {
+        height: 220px;
+    }
+    .upcoming-card {
+        width: 100%;
+    }
+    .upcoming-card .card-img {
+        height: 350px;
+    }
 }
