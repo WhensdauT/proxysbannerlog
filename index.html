@@ -2,7 +2,6 @@
 <html lang="ru">
 <head>
     <script>
-        // 🔧 ТЕХ.РАБОТЫ: поставь true чтобы включить заглушку
         const MAINTENANCE = false;
         if (MAINTENANCE) window.location.href = 'maintenance.html';
     </script>
@@ -40,36 +39,36 @@
         <div class="highlights-right">
             <h2 class="section-title">⏳ Дольше всех без рерана</h2>
             <div class="top5-container" id="top5-container"></div>
-        </div>
-    </div>
+            
+            <!-- Кнопка "История баннеров" -->
+            <div style="text-align: center; padding: 15px 0 0 0;">
+                <a href="history.html" style="
+                    display: inline-block;
+                    background: #1a1a1a;
+                    border: 2px solid rgba(0, 212, 255, 0.4);
+                    color: #00d4ff;
+                    padding: 12px 30px;
+                    border-radius: 50px;
+                    font-family: 'Russo One', sans-serif;
+                    font-size: 0.95rem;
+                    text-decoration: none;
+                    transition: all 0.3s;
+                    box-shadow: 0 0 15px rgba(0, 212, 255, 0.2);
+                " onmouseover="this.style.background='#2d2d2d'; this.style.borderColor='#ff2d95'; this.style.color='#ff2d95'; this.style.boxShadow='0 0 25px rgba(255, 45, 149, 0.4)';" onmouseout="this.style.background='#1a1a1a'; this.style.borderColor='rgba(0, 212, 255, 0.4)'; this.style.color='#00d4ff'; this.style.boxShadow='0 0 15px rgba(0, 212, 255, 0.2)';">
+                    📜 История баннеров
+                </a>
+            </div>
 
-    <!-- Таймер -->
-    <div class="timer-section" id="timer-section">
-        <p class="timer-label">До следующего баннера</p>
-        <div class="timer" id="countdown">
-            <span id="days">0</span>д
-            <span id="hours">0</span>ч
-            <span id="minutes">0</span>м
+            <!-- Таймер -->
+            <div class="timer-section" id="timer-section" style="margin-top: 15px;">
+                <p class="timer-label">До следующего баннера</p>
+                <div class="timer" id="countdown">
+                    <span id="days">0</span>д
+                    <span id="hours">0</span>ч
+                    <span id="minutes">0</span>м
+                </div>
+            </div>
         </div>
-    </div>
-
-    <!-- Кнопка "История баннеров" -->
-    <div style="text-align: center; padding: 10px 20px;">
-        <a href="history.html" style="
-            display: inline-block;
-            background: #1a1a1a;
-            border: 2px solid rgba(0, 212, 255, 0.4);
-            color: #00d4ff;
-            padding: 12px 35px;
-            border-radius: 50px;
-            font-family: 'Russo One', sans-serif;
-            font-size: 1rem;
-            text-decoration: none;
-            transition: all 0.3s;
-            box-shadow: 0 0 15px rgba(0, 212, 255, 0.2);
-        " onmouseover="this.style.background='#2d2d2d'; this.style.borderColor='#ff2d95'; this.style.color='#ff2d95'; this.style.boxShadow='0 0 25px rgba(255, 45, 149, 0.4)';" onmouseout="this.style.background='#1a1a1a'; this.style.borderColor='rgba(0, 212, 255, 0.4)'; this.style.color='#00d4ff'; this.style.boxShadow='0 0 15px rgba(0, 212, 255, 0.2)';">
-            📜 История баннеров
-        </a>
     </div>
 
     <!-- Фильтры -->
