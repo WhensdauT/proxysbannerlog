@@ -702,3 +702,10 @@ footer a:hover {
     box-shadow: 0 0 30px rgba(255, 45, 149, 0.5);
     transform: scale(1.05);
 }
+/* Контейнер для кнопки истории */
+.history-btn-wrapper {
+    text-align: center;
+    padding: 20px 0 0 0;
+    width: 100%;
+    clear: both;
+}
