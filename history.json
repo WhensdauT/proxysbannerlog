@@ -7,14 +7,14 @@
       "startDate": "2026-04-23",
       "endDate": "2026-05-06",
       "characters": [
-        { "name": "Promeia", "type": "Дебют" }
+        { "name": "Promeia", "type": "Дебют", "image": "images/Promeia.png" }
       ]
     },
     "phase2": {
       "startDate": "2026-05-07",
       "endDate": "2026-05-14",
       "characters": [
-        { "name": "Starlight Billy", "type": "Реран" }
+        { "name": "Starlight Billy", "type": "Реран", "image": "images/Starlight Billy.png" }
       ]
     }
   },
@@ -26,16 +26,16 @@
       "startDate": "2026-03-24",
       "endDate": "2026-04-07",
       "characters": [
-        { "name": "Nangong Yu", "type": "Дебют" },
-        { "name": "Yidhari", "type": "Реран" }
+        { "name": "Nangong Yu", "type": "Дебют", "image": "images/Nangong Yu.png" },
+        { "name": "Yidhari", "type": "Реран", "image": "images/Yidhari.png" }
       ]
     },
     "phase2": {
       "startDate": "2026-04-08",
       "endDate": "2026-04-22",
       "characters": [
-        { "name": "Cissia", "type": "Дебют" },
-        { "name": "Seed", "type": "Реран" }
+        { "name": "Cissia", "type": "Дебют", "image": "images/Cissia.png" },
+        { "name": "Seed", "type": "Реран", "image": "images/Seed.png" }
       ]
     }
   }
