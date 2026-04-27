@@ -680,3 +680,25 @@ footer a:hover {
     box-shadow: 0 4px 12px rgba(201, 160, 61, 0.3);
     transform: translateX(3px);
 }
+/* Кнопка "История баннеров" */
+.history-btn {
+    display: inline-block;
+    background: #1a1a1a;
+    border: 2px solid rgba(0, 212, 255, 0.4);
+    color: #00d4ff;
+    padding: 15px 45px;
+    border-radius: 50px;
+    font-family: 'Russo One', sans-serif;
+    font-size: 1.2rem;
+    text-decoration: none;
+    transition: all 0.3s;
+    box-shadow: 0 0 20px rgba(0, 212, 255, 0.25);
+}
+
+.history-btn:hover {
+    background: #2d2d2d;
+    border-color: #ff2d95;
+    color: #ff2d95;
+    box-shadow: 0 0 30px rgba(255, 45, 149, 0.5);
+    transform: scale(1.05);
+}
