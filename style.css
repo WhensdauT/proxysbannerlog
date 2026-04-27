@@ -612,3 +612,32 @@ footer a:hover {
         height: 350px;
     }
 }
+/* Кнопка истории */
+.history-btn {
+    position: fixed;
+    bottom: 100px;  /* Чуть выше кнопки "Наверх" (которая на 30px) */
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background: #1a1a1a;
+    border: 2px solid rgba(0, 212, 255, 0.4);
+    border-radius: 50%;
+    color: #00d4ff;
+    font-size: 1.6rem;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 99998;
+    transition: all 0.3s;
+    box-shadow: 0 0 15px rgba(0, 212, 255, 0.2);
+}
+
+.history-btn:hover {
+    background: #2d2d2d;
+    border-color: #ff2d95;
+    color: #ff2d95;
+    box-shadow: 0 0 20px rgba(255, 45, 149, 0.5);
+    transform: scale(1.05);
+}
