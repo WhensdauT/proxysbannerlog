@@ -8,38 +8,42 @@
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Proxy's Banner Log | Баннеры ZZZ</title>
-    <meta name="description" content="Архив всех баннеров Zenless Zone Zero с автоматическим счётчиком дней">
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💿</text></svg>">
+    <title>Traveler's Banner Log | Баннеры Genshin Impact</title>
+    <meta name="description" content="Архив всех баннеров Genshin Impact с автоматическим счётчиком дней">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚜️</text></svg>">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="grid.css">
     <link rel="stylesheet" href="particles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Russo+One&family=Inter:wght@400;600&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="cover">
         <div class="video-background">
             <iframe 
-                src="https://www.youtube.com/embed/ffubdFPFlS8?autoplay=1&mute=1&loop=1&playlist=ffubdFPFlS8&controls=0&showinfo=0&rel=0" 
+                src="https://www.youtube.com/embed/7s4jHhTBoME?autoplay=1&mute=1&loop=1&playlist=7s4jHhTBoME&controls=0&showinfo=0&rel=0" 
                 frameborder="0" 
                 allow="autoplay; encrypted-media" 
                 allowfullscreen>
             </iframe>
         </div>
         <div class="cover-overlay"></div>
-        <h1 class="neon-title">Proxy's Banner Log</h1>
+        <h1 class="gold-title">Traveler's Banner Log</h1>
         <p class="subtitle-small">Автоматический счётчик дней с последнего баннера каждого персонажа</p>
     </div>
 
     <!-- Секция "Скоро" и "Топ" -->
     <div class="highlights">
         <div class="highlights-left">
-            <h2 class="section-title">🔥 Скоро в баннерах</h2>
+            <h2 class="section-title">🌟 Скоро в баннерах</h2>
             <div class="upcoming-container" id="upcoming-container"></div>
         </div>
         <div class="highlights-right">
             <h2 class="section-title">⏳ Дольше всех без рерана</h2>
             <div class="top5-container" id="top5-container"></div>
+            <!-- Кнопка перехода на страницу истории -->
+            <div style="text-align: center; margin-top: 25px;">
+                <a href="history.html" class="history-link">📜 Вся история баннеров →</a>
+            </div>
         </div>
     </div>
 
@@ -81,27 +85,25 @@
     <button id="scroll-top" class="scroll-top" title="Наверх">▲</button>
 
     <div class="donate-section">
-        <a href="https://boosty.to/proxysbannerlog" target="_blank" class="donate-button">
-            💿 Поддержать проект (временно не работает)
+        <a href="#" target="_blank" class="donate-button">
+            ⚜️ Поддержать проект
         </a>
     </div>
 
     <!-- Кнопки "Поделиться" -->
     <div class="share-section">
         <p>Поделиться:</p>
-        <a href="https://t.me/share/url?url=https://whensdaut.github.io/proxysbannerlog/" target="_blank" class="share-btn tg">Telegram (временно не работает)</a>
-        <a href="https://vk.com/share.php?url=https://whensdaut.github.io/proxysbannerlog/" target="_blank" class="share-btn vk">ВКонтакте (временно не работает)</a>
-        <button onclick="navigator.clipboard.writeText('https://whensdaut.github.io/proxysbannerlog/')" class="share-btn copy">📋 Скопировать</button>
+        <a href="https://t.me/share/url?url=https://travelersbannerlog.github.io/" target="_blank" class="share-btn tg">Telegram</a>
+        <a href="https://vk.com/share.php?url=https://travelersbannerlog.github.io/" target="_blank" class="share-btn vk">ВКонтакте</a>
+        <button onclick="navigator.clipboard.writeText('https://travelersbannerlog.github.io/')" class="share-btn copy">📋 Скопировать</button>
     </div>
 
     <footer>
         <p>Данные обновляются автоматически • Неофициальный фанатский проект</p>
-        <p>Сайт создан <a href="https://github.com/WhensdauT" target="_blank">WhensdauT</a> • <a href="about.html">О проекте</a></p>
+        <p>Сайт создан по мотивам <a href="https://github.com/WhensdauT/proxysbannerlog">Proxy's Banner Log</a> • <a href="about.html">О проекте</a></p>
     </footer>
 
     <script src="particles.js"></script>
     <script src="script.js"></script>
-    <!-- Кнопка перехода на страницу истории -->
-<a href="history.html" class="history-btn" title="История баннеров">📜</a>
 </body>
 </html>
