@@ -17,9 +17,8 @@
     text-decoration: underline;
 }
 
-/* Версия */
 .version-block {
-    margin-bottom: 40px;
+    margin-bottom: 30px;
     background: #1a1a1a;
     border-radius: 20px;
     padding: 25px;
@@ -41,7 +40,6 @@
     margin-bottom: 20px;
 }
 
-/* Фазы */
 .phases {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -102,7 +100,6 @@
     color: #ffffff;
 }
 
-/* Адаптив */
 @media (max-width: 768px) {
     .phases {
         grid-template-columns: 1fr;
