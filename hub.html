@@ -1,1 +1,83 @@
-
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Архив баннеров | Proxy's Banner Log</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💿</text></svg>">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="grid.css">
+    <link rel="stylesheet" href="particles.css">
+    <style>
+        .hub-page {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 60px 20px;
+            text-align: center;
+            color: #fff;
+        }
+        .hub-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 50px;
+        }
+        .hub-card {
+            background: #1a1a1a;
+            border: 1px solid rgba(0,212,255,0.2);
+            border-radius: 24px;
+            padding: 40px 30px;
+            width: 250px;
+            text-decoration: none;
+            color: #fff;
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+        .hub-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 0 30px rgba(0,212,255,0.3);
+            border-color: #ff2d95;
+        }
+        .hub-icon {
+            font-size: 3rem;
+        }
+        .hub-title {
+            font-family: 'Russo One', sans-serif;
+            font-size: 1.4rem;
+        }
+        .hub-desc {
+            font-size: 0.9rem;
+            color: #9b9b9b;
+        }
+    </style>
+</head>
+<body>
+    <div class="hub-page">
+        <a href="index.html" class="back-link" style="font-size:1rem;">← На главную</a>
+        <h1 class="neon-title" style="font-size:3rem; margin-top:20px;">Архив баннеров</h1>
+        <p style="color:#777; margin-top:10px;">Выберите раздел:</p>
+        
+        <div class="hub-grid">
+            <a href="history.html" class="hub-card">
+                <span class="hub-icon">📜</span>
+                <span class="hub-title">История баннеров</span>
+                <span class="hub-desc">Все версии с фазами</span>
+            </a>
+            <a href="characters.html" class="hub-card">
+                <span class="hub-icon">👥</span>
+                <span class="hub-title">Персонажи</span>
+                <span class="hub-desc">Последний реран каждого</span>
+            </a>
+            <a href="announced.html" class="hub-card">
+                <span class="hub-icon">📢</span>
+                <span class="hub-title">Анонсы</span>
+                <span class="hub-desc">Будущие герои</span>
+            </a>
+        </div>
+    </div>
+</body>
+</html>
