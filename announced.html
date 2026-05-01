@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Анонсы | Proxy's Banner Log</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💿</text></svg>">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="grid.css">
+    <link rel="stylesheet" href="particles.css">
+    <style>
+        .announcements-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 25px;
+            justify-content: center;
+            margin-top: 30px;
+        }
+        .announcement-card {
+            background: #1a1a1a;
+            border: 1px solid rgba(255,215,0,0.3);
+            border-radius: 20px;
+            padding: 30px;
+            width: 280px;
+            text-align: center;
+            box-shadow: 0 0 20px rgba(255,215,0,0.1);
+            transition: transform 0.3s;
+        }
+        .announcement-card:hover {
+            transform: translateY(-5px);
+        }
+        .announcement-name {
+            font-family: 'Russo One', sans-serif;
+            font-size: 1.5rem;
+            color: #ffd700;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div style="max-width:1000px; margin:40px auto; padding:0 20px;">
+        <a href="hub.html" class="back-link">← В архив</a>
+        <h1 class="neon-title" style="font-size:2.5rem; margin:20px 0;">Анонсы</h1>
+        <div id="announcements-container"></div>
+    </div>
+    <footer><p><a href="hub.html">← Архив</a> | <a href="index.html">На главную</a></p></footer>
+    <script>
+        fetch('announced.json')
+          .then(res => res.json())
+          .then(data => {
+              const container = document.getElementById('announcements-container');
+              if (!data.length) {
+                  container.innerHTML = '<p style="text-align:center;color:#777;">Пока нет анонсированных персонажей.</p>';
+                  return;
+              }
+              const grid = document.createElement('div');
+              grid.className = 'announcements-grid';
+              data.forEach(entry => {
+                  const card = document.createElement('div');
+                  card.className = 'announcement-card';
+                  card.innerHTML = `
+                    <div class="announcement-name">✨ ${entry.agent}</div>
+                    <p style="color:#9b9b9b;">${entry.banner}</p>
+                    <p style="color:#9b9b9b;">Версия: ${entry.version}</p>
+                    <p style="color:#ffd700;">Дата уточняется</p>
+                  `;
+                  grid.appendChild(card);
+              });
+              container.appendChild(grid);
+          })
+          .catch(() => {
+              document.getElementById('announcements-container').innerHTML = '<p style="color:#777;">Ошибка загрузки</p>';
+          });
+    </script>
+</body>
+</html>
