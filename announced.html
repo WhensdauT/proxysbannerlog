@@ -37,99 +37,100 @@
             justify-content: center;
             gap: 30px;
         }
-        /* Карточка анонса */
+        /* Горизонтальная карточка */
         .ann-card {
             position: relative;
-            width: 280px;
+            width: 360px;
             background: #1a1a1a;
             border-radius: 20px;
             border: 1px solid rgba(255, 215, 0, 0.3);
             box-shadow: 0 0 20px rgba(255, 215, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s;
+            transition: transform 0.3s, box-shadow 0.3s;
             cursor: pointer;
-            overflow: visible; /* чтобы всплывалка не обрезалась */
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
         }
         .ann-card:hover {
-            transform: translateX(-10px);
             box-shadow: 0 0 30px rgba(255, 45, 149, 0.4);
             border-color: #ff2d95;
         }
-        /* Основной блок карточки (изображение + заголовок) */
+        /* Основной блок: картинка + название */
         .ann-card-main {
             position: relative;
             z-index: 2;
             background: #1a1a1a;
-            border-radius: 20px;
-            padding: 0 0 20px 0;
             transition: transform 0.3s ease;
+            flex-shrink: 0;
         }
         .ann-card:hover .ann-card-main {
-            transform: translateX(-10px);
+            transform: translateY(-20px);
         }
         .ann-card-img {
             width: 100%;
-            height: 350px;
+            height: 200px; /* горизонтальный формат */
             object-fit: cover;
-            border-radius: 20px 20px 0 0;
-            background: #2a2a2a;
             display: block;
+            background: #2a2a2a;
+        }
+        .ann-card-header {
+            padding: 15px 15px 0;
+            text-align: center;
         }
         .ann-card-name {
             font-family: 'Russo One', sans-serif;
             font-size: 1.6rem;
             color: #ffd700;
-            text-align: center;
-            margin-top: 15px;
-            padding: 0 10px;
+            margin-bottom: 5px;
         }
         .ann-card-version {
-            text-align: center;
             color: #9b9b9b;
             font-size: 0.9rem;
-            margin-top: 5px;
         }
-        /* Всплывающая панель с деталями */
+        /* Панель с деталями (выезжает снизу) */
         .ann-details {
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 220px;
-            height: 100%;
             background: #111;
-            border-radius: 0 20px 20px 0;
-            border-left: 1px solid #ff2d95;
-            padding: 25px 15px;
-            transform: translateX(100%);
+            border-top: 1px solid #ff2d95;
+            padding: 20px 15px;
+            transform: translateY(100%);
             opacity: 0;
             transition: transform 0.3s ease, opacity 0.3s ease;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
             z-index: 1;
+            box-shadow: 0 -5px 20px rgba(0,0,0,0.8);
             display: flex;
             flex-direction: column;
-            justify-content: center;
-            gap: 12px;
-            box-shadow: 0 0 20px rgba(0,0,0,0.8);
+            gap: 10px;
+            border-radius: 0 0 20px 20px;
         }
         .ann-card:hover .ann-details {
-            transform: translateX(0);
+            transform: translateY(0);
             opacity: 1;
         }
         .ann-details p {
             margin: 0;
             font-size: 0.9rem;
             color: #ccc;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-            padding-bottom: 5px;
-        }
-        .ann-details p:last-child {
-            border-bottom: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
         .ann-details strong {
             color: #ffd700;
-            display: block;
             font-size: 0.75rem;
             text-transform: uppercase;
             letter-spacing: 1px;
-            margin-bottom: 2px;
+            min-width: 70px;
+            display: inline-block;
+        }
+        .detail-icon {
+            font-size: 1.2rem;
+            width: 24px;
+            text-align: center;
+            display: inline-block;
         }
     </style>
 </head>
@@ -145,6 +146,9 @@
     </footer>
 
     <script>
+        // Базовая папка для изображений анонсов
+        const IMAGE_BASE = 'imagine/';
+
         fetch('announced.json')
           .then(res => res.json())
           .then(data => {
@@ -154,23 +158,32 @@
                   return;
               }
               data.forEach(entry => {
+                  // Формируем путь к изображению
+                  let imageSrc = 'https://via.placeholder.com/360x200/1a1a1a/ffd700?text=' + encodeURIComponent(entry.agent);
+                  if (entry.image && entry.image.trim() !== '') {
+                      // Если указан полный путь, используем как есть, иначе добавляем IMAGE_BASE
+                      imageSrc = entry.image.startsWith('http') ? entry.image : IMAGE_BASE + entry.image;
+                  }
+                  
                   const card = document.createElement('div');
                   card.className = 'ann-card';
                   card.innerHTML = `
                     <div class="ann-card-main">
-                        <img src="${entry.image || 'https://via.placeholder.com/280x350/1a1a1a/ffd700?text=' + encodeURIComponent(entry.agent)}" 
+                        <img src="${imageSrc}" 
                              alt="${entry.agent}" 
                              class="ann-card-img" 
                              loading="lazy"
-                             onerror="this.onerror=null; this.src='https://via.placeholder.com/280x350/1a1a1a/ffd700?text=' + encodeURIComponent('${entry.agent}');">
-                        <div class="ann-card-name">${entry.agent}</div>
-                        <div class="ann-card-version">Версия ${entry.version}</div>
+                             onerror="this.onerror=null; this.src='https://via.placeholder.com/360x200/1a1a1a/ffd700?text=' + encodeURIComponent('${entry.agent}');">
+                        <div class="ann-card-header">
+                            <div class="ann-card-name">${entry.agent}</div>
+                            <div class="ann-card-version">Версия ${entry.version}</div>
+                        </div>
                     </div>
                     <div class="ann-details">
-                        <p><strong>Фракция</strong>${entry.faction || 'Неизвестно'}</p>
-                        <p><strong>Тип Аномалии</strong>${entry.attribute || 'Неизвестно'}</p>
-                        <p><strong>Стихия</strong>${entry.element || 'Неизвестно'}</p>
-                        <p><strong>Примерное время</strong>${entry.estimatedRelease || 'Скоро'}</p>
+                        <p><span class="detail-icon">🏛️</span><strong>Фракция</strong> ${entry.faction || 'Неизвестно'}</p>
+                        <p><span class="detail-icon">⚡</span><strong>Атрибут</strong> ${entry.attribute || 'Неизвестно'}</p>
+                        <p><span class="detail-icon">🗡️</span><strong>Тип</strong> ${entry.element || 'Неизвестно'}</p>
+                        <p><span class="detail-icon">📅</span><strong>Выход</strong> ${entry.estimatedRelease || 'Скоро'}</p>
                     </div>
                   `;
                   container.appendChild(card);
