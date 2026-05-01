@@ -1,10 +1,20 @@
-{
-  "agent": "Имя персонажа",
-  "banner": "Анонс",
-  "version": "2.9",
-  "faction": "Фракция",
-  "attribute": "Тип Аномалии",
-  "element": "Стихия",
-  "estimatedRelease": "Примерное время выхода",
-  "image": "images/имя_файла.png"
-}
+[
+  {
+    "agent": "Pyrois",
+    "banner": "Анонс",
+    "version": "3.0",
+    "faction": "Phaethon",
+    "factionImage": "Phaethon.png",
+    "attribute": "Ether",
+    "attributeImage": "Ether.png",
+    "element": "Attack",
+    "elementImage": "Attack.png",
+    "estimatedRelease": "Версия 3.0",
+    "description": "Grip tight the reins tempered by the light of dawn.
+What's scorched never fades beneath the skin —
+Until they step onto the promised golden chariot once more.
+
+—Agent Record.",
+    "image": "Pyrois.png"
+  }
+]
