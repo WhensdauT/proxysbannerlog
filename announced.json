@@ -1,8 +1,10 @@
-[
-  {
-    "agent": "Новый герой",
-    "banner": "Анонс",
-    "version": "2.9",
-    "image": ""
-  }
-]
+{
+  "agent": "Имя персонажа",
+  "banner": "Анонс",
+  "version": "2.9",
+  "faction": "Фракция",
+  "attribute": "Тип Аномалии",
+  "element": "Стихия",
+  "estimatedRelease": "Примерное время выхода",
+  "image": "images/имя_файла.png"
+}
