@@ -4,72 +4,181 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Анонсы | Proxy's Banner Log</title>
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💿</text></svg>">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="grid.css">
-    <link rel="stylesheet" href="particles.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📢</text></svg>">
+    <link rel="stylesheet" href="style.css?v=1">
+    <link rel="stylesheet" href="grid.css?v=1">
+    <link rel="stylesheet" href="particles.css?v=1">
     <style>
+        body {
+            background: #0f0f0f;
+            color: #fff;
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .announcements-page {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+        .back-link {
+            color: #00d4ff;
+            text-decoration: none;
+            font-size: 1.1rem;
+            display: inline-block;
+            margin-bottom: 30px;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
         .announcements-grid {
             display: flex;
             flex-wrap: wrap;
-            gap: 25px;
             justify-content: center;
-            margin-top: 30px;
+            gap: 30px;
         }
-        .announcement-card {
-            background: #1a1a1a;
-            border: 1px solid rgba(255,215,0,0.3);
-            border-radius: 20px;
-            padding: 30px;
+        /* Карточка анонса */
+        .ann-card {
+            position: relative;
             width: 280px;
-            text-align: center;
-            box-shadow: 0 0 20px rgba(255,215,0,0.1);
-            transition: transform 0.3s;
+            background: #1a1a1a;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s;
+            cursor: pointer;
+            overflow: visible; /* чтобы всплывалка не обрезалась */
         }
-        .announcement-card:hover {
-            transform: translateY(-5px);
+        .ann-card:hover {
+            transform: translateX(-10px);
+            box-shadow: 0 0 30px rgba(255, 45, 149, 0.4);
+            border-color: #ff2d95;
         }
-        .announcement-name {
+        /* Основной блок карточки (изображение + заголовок) */
+        .ann-card-main {
+            position: relative;
+            z-index: 2;
+            background: #1a1a1a;
+            border-radius: 20px;
+            padding: 0 0 20px 0;
+            transition: transform 0.3s ease;
+        }
+        .ann-card:hover .ann-card-main {
+            transform: translateX(-10px);
+        }
+        .ann-card-img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            border-radius: 20px 20px 0 0;
+            background: #2a2a2a;
+            display: block;
+        }
+        .ann-card-name {
             font-family: 'Russo One', sans-serif;
-            font-size: 1.5rem;
+            font-size: 1.6rem;
             color: #ffd700;
-            margin-bottom: 10px;
+            text-align: center;
+            margin-top: 15px;
+            padding: 0 10px;
+        }
+        .ann-card-version {
+            text-align: center;
+            color: #9b9b9b;
+            font-size: 0.9rem;
+            margin-top: 5px;
+        }
+        /* Всплывающая панель с деталями */
+        .ann-details {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 220px;
+            height: 100%;
+            background: #111;
+            border-radius: 0 20px 20px 0;
+            border-left: 1px solid #ff2d95;
+            padding: 25px 15px;
+            transform: translateX(100%);
+            opacity: 0;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 12px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.8);
+        }
+        .ann-card:hover .ann-details {
+            transform: translateX(0);
+            opacity: 1;
+        }
+        .ann-details p {
+            margin: 0;
+            font-size: 0.9rem;
+            color: #ccc;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding-bottom: 5px;
+        }
+        .ann-details p:last-child {
+            border-bottom: none;
+        }
+        .ann-details strong {
+            color: #ffd700;
+            display: block;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 2px;
         }
     </style>
 </head>
 <body>
-    <div style="max-width:1000px; margin:40px auto; padding:0 20px;">
+    <div class="announcements-page">
         <a href="hub.html" class="back-link">← В архив</a>
-        <h1 class="neon-title" style="font-size:2.5rem; margin:20px 0;">Анонсы</h1>
-        <div id="announcements-container"></div>
+        <h1 class="neon-title" style="font-size:3rem; text-align:center; margin-bottom:40px;">Анонсы</h1>
+        <div id="announcements-container" class="announcements-grid"></div>
     </div>
-    <footer><p><a href="hub.html">← Архив</a> | <a href="index.html">На главную</a></p></footer>
+
+    <footer style="text-align:center; padding:30px; color:#555; border-top:1px solid rgba(255,255,255,0.05); margin-top:50px;">
+        <p><a href="hub.html">← В архив</a> | <a href="index.html">На главную</a></p>
+    </footer>
+
     <script>
         fetch('announced.json')
           .then(res => res.json())
           .then(data => {
               const container = document.getElementById('announcements-container');
               if (!data.length) {
-                  container.innerHTML = '<p style="text-align:center;color:#777;">Пока нет анонсированных персонажей.</p>';
+                  container.innerHTML = '<p style="text-align:center;color:#777;width:100%;">Пока нет анонсированных персонажей.</p>';
                   return;
               }
-              const grid = document.createElement('div');
-              grid.className = 'announcements-grid';
               data.forEach(entry => {
                   const card = document.createElement('div');
-                  card.className = 'announcement-card';
+                  card.className = 'ann-card';
                   card.innerHTML = `
-                    <div class="announcement-name">✨ ${entry.agent}</div>
-                    <p style="color:#9b9b9b;">${entry.banner}</p>
-                    <p style="color:#9b9b9b;">Версия: ${entry.version}</p>
-                    <p style="color:#ffd700;">Дата уточняется</p>
+                    <div class="ann-card-main">
+                        <img src="${entry.image || 'https://via.placeholder.com/280x350/1a1a1a/ffd700?text=' + encodeURIComponent(entry.agent)}" 
+                             alt="${entry.agent}" 
+                             class="ann-card-img" 
+                             loading="lazy"
+                             onerror="this.onerror=null; this.src='https://via.placeholder.com/280x350/1a1a1a/ffd700?text=' + encodeURIComponent('${entry.agent}');">
+                        <div class="ann-card-name">${entry.agent}</div>
+                        <div class="ann-card-version">Версия ${entry.version}</div>
+                    </div>
+                    <div class="ann-details">
+                        <p><strong>Фракция</strong>${entry.faction || 'Неизвестно'}</p>
+                        <p><strong>Тип Аномалии</strong>${entry.attribute || 'Неизвестно'}</p>
+                        <p><strong>Стихия</strong>${entry.element || 'Неизвестно'}</p>
+                        <p><strong>Примерное время</strong>${entry.estimatedRelease || 'Скоро'}</p>
+                    </div>
                   `;
-                  grid.appendChild(card);
+                  container.appendChild(card);
               });
-              container.appendChild(grid);
           })
-          .catch(() => {
-              document.getElementById('announcements-container').innerHTML = '<p style="color:#777;">Ошибка загрузки</p>';
+          .catch(err => {
+              console.error('Ошибка загрузки анонсов:', err);
+              document.getElementById('announcements-container').innerHTML = '<p style="text-align:center;color:#777;width:100%;">Ошибка загрузки данных</p>';
           });
     </script>
 </body>
