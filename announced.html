@@ -35,7 +35,6 @@
             justify-content: center;
             gap: 30px;
         }
-        /* Карточка */
         .ann-card {
             width: 380px;
             background: #1a1a1a;
@@ -46,13 +45,12 @@
             cursor: pointer;
             display: flex;
             flex-direction: column;
-            overflow: visible;          /* ← больше не обрезаем */
+            overflow: visible;
         }
         .ann-card:hover {
             box-shadow: 0 0 30px rgba(255, 45, 149, 0.4);
             border-color: #ff2d95;
         }
-        /* Верхняя часть с картинкой и именем */
         .ann-card-main {
             background: #1a1a1a;
             transition: transform 0.3s ease;
@@ -85,9 +83,8 @@
             font-size: 0.9rem;
             margin-bottom: 10px;
         }
-        /* Блок деталей — теперь не absolute, а в потоке */
         .ann-details-wrapper {
-            overflow: hidden;           /* скрываем содержимое, пока max-height == 0 */
+            overflow: hidden;
             max-height: 0;
             transition: max-height 0.4s ease, opacity 0.3s ease;
             opacity: 0;
@@ -95,7 +92,7 @@
             background: #111;
         }
         .ann-card:hover .ann-details-wrapper {
-            max-height: 500px;          /* достаточно большая высота */
+            max-height: 500px;
             opacity: 1;
         }
         .ann-details {
@@ -104,7 +101,6 @@
             flex-direction: column;
             gap: 12px;
         }
-        /* Атрибуты */
         .ann-attributes {
             display: flex;
             justify-content: center;
@@ -127,7 +123,6 @@
         .ann-attribute-emoji {
             font-size: 1.5rem;
         }
-        /* Описание */
         .ann-description {
             color: #bbb;
             font-size: 0.85rem;
@@ -135,7 +130,6 @@
             text-align: center;
             white-space: pre-line;
         }
-        /* Дата выхода */
         .ann-release {
             text-align: center;
             color: #ffd700;
@@ -155,7 +149,9 @@
     </footer>
 
     <script>
-        const IMAGES_BASE = 'imagine/';
+        // Базовая папка для всех изображений анонсов – теперь images/
+        const IMAGES_BASE = 'images/';
+
         const defaultIcons = { faction: '🏛️', attribute: '⚡', element: '🗡️' };
 
         fetch('announced.json')
