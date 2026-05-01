@@ -14,3 +14,19 @@
     "image": "Pyrois.png"
   }
 ]
+[
+  {
+    "agent": "Velina",
+    "banner": "Анонс",
+    "version": "3.0",
+    "faction": "External Strategy Department",
+    "factionImage": "External Strategy Department.png",
+    "attribute": "Wind",
+    "attributeImage": "Wind.png",
+    "element": "Anomaly",
+    "elementImage": "Anomaly.png",
+    "estimatedRelease": "Версия 3.0",
+    "description": ""Welcome to Roscaelifer. I'm Velina, head of the External Strategy Department. I'll be your guide.\nVelina Airgid\n\n\"So these Bangboo are refusing their routine annual inspection again...\"\n\"Don't worry, I'll handle it accordingly.\"\n\"After all, it's about time we threw another tea party.\"\n\n—Agent Record"",
+    "image": "Velina.png"
+  }
+]
