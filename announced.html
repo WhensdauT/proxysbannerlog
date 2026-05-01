@@ -28,40 +28,36 @@
             display: inline-block;
             margin-bottom: 30px;
         }
-        .back-link:hover {
-            text-decoration: underline;
-        }
+        .back-link:hover { text-decoration: underline; }
         .announcements-grid {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
             gap: 30px;
         }
-        /* Горизонтальная карточка */
+        /* Карточка */
         .ann-card {
-            position: relative;
             width: 380px;
             background: #1a1a1a;
             border-radius: 20px;
             border: 1px solid rgba(255, 215, 0, 0.3);
             box-shadow: 0 0 20px rgba(255, 215, 0, 0.1);
-            transition: transform 0.3s, box-shadow 0.3s;
+            transition: box-shadow 0.3s, border-color 0.3s;
             cursor: pointer;
-            overflow: hidden;
             display: flex;
             flex-direction: column;
+            overflow: visible;          /* ← больше не обрезаем */
         }
         .ann-card:hover {
             box-shadow: 0 0 30px rgba(255, 45, 149, 0.4);
             border-color: #ff2d95;
         }
-        /* Основной блок: картинка + имя */
+        /* Верхняя часть с картинкой и именем */
         .ann-card-main {
-            position: relative;
-            z-index: 2;
             background: #1a1a1a;
             transition: transform 0.3s ease;
-            flex-shrink: 0;
+            border-radius: 20px 20px 0 0;
+            z-index: 2;
         }
         .ann-card:hover .ann-card-main {
             transform: translateY(-20px);
@@ -72,6 +68,7 @@
             object-fit: cover;
             display: block;
             background: #2a2a2a;
+            border-radius: 20px 20px 0 0;
         }
         .ann-card-header {
             padding: 15px 15px 0;
@@ -86,31 +83,28 @@
         .ann-card-version {
             color: #9b9b9b;
             font-size: 0.9rem;
+            margin-bottom: 10px;
         }
-        /* Панель с деталями (выезжает снизу) */
-        .ann-details {
-            background: #111;
-            border-top: 1px solid #ff2d95;
-            padding: 20px 15px;
-            transform: translateY(100%);
+        /* Блок деталей — теперь не absolute, а в потоке */
+        .ann-details-wrapper {
+            overflow: hidden;           /* скрываем содержимое, пока max-height == 0 */
+            max-height: 0;
+            transition: max-height 0.4s ease, opacity 0.3s ease;
             opacity: 0;
-            transition: transform 0.3s ease, opacity 0.3s ease;
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1;
-            box-shadow: 0 -5px 20px rgba(0,0,0,0.8);
+            border-radius: 0 0 20px 20px;
+            background: #111;
+        }
+        .ann-card:hover .ann-details-wrapper {
+            max-height: 500px;          /* достаточно большая высота */
+            opacity: 1;
+        }
+        .ann-details {
+            padding: 20px 15px;
             display: flex;
             flex-direction: column;
             gap: 12px;
-            border-radius: 0 0 20px 20px;
         }
-        .ann-card:hover .ann-details {
-            transform: translateY(0);
-            opacity: 1;
-        }
-        /* Строка с атрибутами */
+        /* Атрибуты */
         .ann-attributes {
             display: flex;
             justify-content: center;
@@ -133,12 +127,13 @@
         .ann-attribute-emoji {
             font-size: 1.5rem;
         }
-        /* Текст о персонаже */
+        /* Описание */
         .ann-description {
             color: #bbb;
             font-size: 0.85rem;
             line-height: 1.4;
             text-align: center;
+            white-space: pre-line;
         }
         /* Дата выхода */
         .ann-release {
@@ -146,7 +141,6 @@
             color: #ffd700;
             font-weight: 600;
             font-size: 1rem;
-            margin-top: 5px;
         }
     </style>
 </head>
@@ -156,21 +150,13 @@
         <h1 class="neon-title" style="font-size:3rem; text-align:center; margin-bottom:40px;">Анонсы</h1>
         <div id="announcements-container" class="announcements-grid"></div>
     </div>
-
     <footer style="text-align:center; padding:30px; color:#555; border-top:1px solid rgba(255,255,255,0.05); margin-top:50px;">
         <p><a href="hub.html">← В архив</a> | <a href="index.html">На главную</a></p>
     </footer>
 
     <script>
-        // Базовая папка для всех изображений анонсов
         const IMAGES_BASE = 'imagine/';
-
-        // Заглушки-эмодзи для ситуаций, когда картинка не указана
-        const defaultIcons = {
-            faction: '🏛️',
-            attribute: '⚡',
-            element: '🗡️'
-        };
+        const defaultIcons = { faction: '🏛️', attribute: '⚡', element: '🗡️' };
 
         fetch('announced.json')
           .then(res => res.json())
@@ -181,13 +167,11 @@
                   return;
               }
               data.forEach(entry => {
-                  // Картинка персонажа
                   let agentImageSrc = 'https://via.placeholder.com/380x200/1a1a1a/ffd700?text=' + encodeURIComponent(entry.agent);
                   if (entry.image && entry.image.trim() !== '') {
                       agentImageSrc = entry.image.startsWith('http') ? entry.image : IMAGES_BASE + entry.image;
                   }
 
-                  // Функция для получения иконки (картинка или эмодзи)
                   const getIcon = (imageField, emoji) => {
                       if (entry[imageField] && entry[imageField].trim() !== '') {
                           const src = entry[imageField].startsWith('http') ? entry[imageField] : IMAGES_BASE + entry[imageField];
@@ -199,8 +183,6 @@
                   const factionIcon = getIcon('factionImage', defaultIcons.faction);
                   const attributeIcon = getIcon('attributeImage', defaultIcons.attribute);
                   const elementIcon = getIcon('elementImage', defaultIcons.element);
-
-                  // Описание персонажа (берется из поля description в JSON)
                   const description = entry.description || 'Подробности появятся позже.';
                   const releaseDate = entry.estimatedRelease || 'Дата уточняется';
 
@@ -208,36 +190,23 @@
                   card.className = 'ann-card';
                   card.innerHTML = `
                     <div class="ann-card-main">
-                        <img src="${agentImageSrc}" 
-                             alt="${entry.agent}" 
-                             class="ann-card-img" 
-                             loading="lazy"
+                        <img src="${agentImageSrc}" alt="${entry.agent}" class="ann-card-img" loading="lazy"
                              onerror="this.onerror=null; this.src='https://via.placeholder.com/380x200/1a1a1a/ffd700?text=' + encodeURIComponent('${entry.agent}');">
                         <div class="ann-card-header">
                             <div class="ann-card-name">${entry.agent}</div>
                             <div class="ann-card-version">Версия ${entry.version}</div>
                         </div>
                     </div>
-                    <div class="ann-details">
-                        <!-- Иконки фракции, атрибута, типа -->
-                        <div class="ann-attributes">
-                            <div class="ann-attribute-item">
-                                ${factionIcon}
-                                <span>${entry.faction || 'Неизвестно'}</span>
+                    <div class="ann-details-wrapper">
+                        <div class="ann-details">
+                            <div class="ann-attributes">
+                                <div class="ann-attribute-item">${factionIcon}<span>${entry.faction || 'Неизвестно'}</span></div>
+                                <div class="ann-attribute-item">${attributeIcon}<span>${entry.attribute || 'Неизвестно'}</span></div>
+                                <div class="ann-attribute-item">${elementIcon}<span>${entry.element || 'Неизвестно'}</span></div>
                             </div>
-                            <div class="ann-attribute-item">
-                                ${attributeIcon}
-                                <span>${entry.attribute || 'Неизвестно'}</span>
-                            </div>
-                            <div class="ann-attribute-item">
-                                ${elementIcon}
-                                <span>${entry.element || 'Неизвестно'}</span>
-                            </div>
+                            <div class="ann-description">${description}</div>
+                            <div class="ann-release">📅 Выход: ${releaseDate}</div>
                         </div>
-                        <!-- Текст о персонаже -->
-                        <div class="ann-description">${description}</div>
-                        <!-- Дата выхода -->
-                        <div class="ann-release">📅 Выход: ${releaseDate}</div>
                     </div>
                   `;
                   container.appendChild(card);
