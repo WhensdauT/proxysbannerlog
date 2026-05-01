@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Персонажи | Proxy's Banner Log</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💿</text></svg>">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="grid.css">
+    <link rel="stylesheet" href="particles.css">
+</head>
+<body>
+    <div style="max-width:1400px; margin:40px auto; padding:0 20px;">
+        <a href="hub.html" class="back-link">← В архив</a>
+        <h1 class="neon-title" style="font-size:2.5rem; margin:20px 0;">Все персонажи</h1>
+        <div class="container" id="banner-container"></div>
+    </div>
+    <footer style="margin-top:50px;">
+        <p><a href="hub.html">← Архив</a> | <a href="index.html">На главную</a></p>
+    </footer>
+    <script>
+        fetch('data.json')
+          .then(res => res.json())
+          .then(data => {
+              const container = document.getElementById('banner-container');
+              data.sort((a,b) => new Date(b.lastBannerDate) - new Date(a.lastBannerDate));
+              data.forEach(entry => {
+                  const card = document.createElement('div');
+                  card.className = 'card';
+                  const days = Math.floor((new Date() - new Date(entry.lastBannerDate + 'T00:00:00')) / (1000*60*60*24));
+                  card.innerHTML = `
+                    <img src="${entry.image}" alt="${entry.agent}" class="card-img" onerror="this.src='https://via.placeholder.com/400x300/1a1a1a/333'">
+                    <div class="card-content">
+                        <div class="character-name">${entry.agent}</div>
+                        <div class="card-info">
+                            <span class="banner-name">${entry.banner}</span>
+                            <span class="version">v${entry.version}</span>
+                        </div>
+                        <div class="rerun-count">
+                            <div class="rerun-label">Дней с баннера</div>
+                            ${days}
+                        </div>
+                    </div>
+                  `;
+                  container.appendChild(card);
+              });
+          });
+    </script>
+</body>
+</html>
