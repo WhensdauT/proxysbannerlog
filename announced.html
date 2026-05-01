@@ -55,7 +55,6 @@
             box-shadow: 0 0 30px rgba(255, 45, 149, 0.4);
             border-color: #ff2d95;
         }
-        /* Основной блок: картинка + название */
         .ann-card-main {
             position: relative;
             z-index: 2;
@@ -68,7 +67,7 @@
         }
         .ann-card-img {
             width: 100%;
-            height: 200px; /* горизонтальный формат */
+            height: 200px;
             object-fit: cover;
             display: block;
             background: #2a2a2a;
@@ -87,7 +86,6 @@
             color: #9b9b9b;
             font-size: 0.9rem;
         }
-        /* Панель с деталями (выезжает снизу) */
         .ann-details {
             background: #111;
             border-top: 1px solid #ff2d95;
@@ -127,6 +125,12 @@
             display: inline-block;
         }
         .detail-icon {
+            width: 24px;
+            height: 24px;
+            object-fit: contain;
+            display: inline-block;
+        }
+        .detail-icon-emoji {
             font-size: 1.2rem;
             width: 24px;
             text-align: center;
@@ -146,8 +150,15 @@
     </footer>
 
     <script>
-        // Базовая папка для изображений анонсов
-        const IMAGE_BASE = 'imagine/';
+        // Базовая папка для всех изображений анонсов
+        const IMAGES_BASE = 'imagine/';
+
+        // Эмодзи-заглушки на случай, если картинка не указана или не загрузилась
+        const defaultIcons = {
+            faction: '🏛️',
+            attribute: '⚡',
+            element: '🗡️'
+        };
 
         fetch('announced.json')
           .then(res => res.json())
@@ -158,18 +169,30 @@
                   return;
               }
               data.forEach(entry => {
-                  // Формируем путь к изображению
-                  let imageSrc = 'https://via.placeholder.com/360x200/1a1a1a/ffd700?text=' + encodeURIComponent(entry.agent);
+                  // Формируем путь к картинке персонажа
+                  let agentImageSrc = 'https://via.placeholder.com/360x200/1a1a1a/ffd700?text=' + encodeURIComponent(entry.agent);
                   if (entry.image && entry.image.trim() !== '') {
-                      // Если указан полный путь, используем как есть, иначе добавляем IMAGE_BASE
-                      imageSrc = entry.image.startsWith('http') ? entry.image : IMAGE_BASE + entry.image;
+                      agentImageSrc = entry.image.startsWith('http') ? entry.image : IMAGES_BASE + entry.image;
                   }
-                  
+
+                  // Функция для получения иконки (картинка или эмодзи)
+                  const getIcon = (imageField, emoji) => {
+                      if (entry[imageField] && entry[imageField].trim() !== '') {
+                          const src = entry[imageField].startsWith('http') ? entry[imageField] : IMAGES_BASE + entry[imageField];
+                          return `<img src="${src}" class="detail-icon" onerror="this.outerHTML='<span class=\'detail-icon-emoji\'>${emoji}</span>';">`;
+                      }
+                      return `<span class="detail-icon-emoji">${emoji}</span>`;
+                  };
+
+                  const factionIcon = getIcon('factionImage', defaultIcons.faction);
+                  const attributeIcon = getIcon('attributeImage', defaultIcons.attribute);
+                  const elementIcon = getIcon('elementImage', defaultIcons.element);
+
                   const card = document.createElement('div');
                   card.className = 'ann-card';
                   card.innerHTML = `
                     <div class="ann-card-main">
-                        <img src="${imageSrc}" 
+                        <img src="${agentImageSrc}" 
                              alt="${entry.agent}" 
                              class="ann-card-img" 
                              loading="lazy"
@@ -180,10 +203,10 @@
                         </div>
                     </div>
                     <div class="ann-details">
-                        <p><span class="detail-icon">🏛️</span><strong>Фракция</strong> ${entry.faction || 'Неизвестно'}</p>
-                        <p><span class="detail-icon">⚡</span><strong>Атрибут</strong> ${entry.attribute || 'Неизвестно'}</p>
-                        <p><span class="detail-icon">🗡️</span><strong>Тип</strong> ${entry.element || 'Неизвестно'}</p>
-                        <p><span class="detail-icon">📅</span><strong>Выход</strong> ${entry.estimatedRelease || 'Скоро'}</p>
+                        <p>${factionIcon}<strong>Фракция</strong> ${entry.faction || 'Неизвестно'}</p>
+                        <p>${attributeIcon}<strong>Атрибут</strong> ${entry.attribute || 'Неизвестно'}</p>
+                        <p>${elementIcon}<strong>Тип</strong> ${entry.element || 'Неизвестно'}</p>
+                        <p><span class="detail-icon-emoji">📅</span><strong>Выход</strong> ${entry.estimatedRelease || 'Скоро'}</p>
                     </div>
                   `;
                   container.appendChild(card);
