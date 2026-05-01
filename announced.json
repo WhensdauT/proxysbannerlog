@@ -26,5 +26,17 @@
     "estimatedRelease": "Версия 3.0",
     "description": "Welcome to Roscaelifer. I'm Velina, head of the External Strategy Department. I'll be your guide.\nVelina Airgid\n\n\"So these Bangboo are refusing their routine annual inspection again...\"\n\"Don't worry, I'll handle it accordingly.\"\n\"After all, it's about time we threw another tea party.\"\n\n—Agent Record",
     "image": "Velina.png"
-  }
-]
+ },
+  {
+"agent": "Norma",
+    "banner": "Анонс",
+    "version": "3.0",
+    "faction": "External Strategy Department",
+    "factionImage": "External Strategy Department.png",
+    "attribute": "Fire",
+    "attributeImage": "Fire.png",
+    "element": "Stun",
+    "elementImage": "Stun.png",
+    "estimatedRelease": "Версия 3.0",
+    "description": "\"If a Hollow Raider and a Bangboo with the same mass both fell from Roscaelifer at the same time, which one would hit the ground first?\"\nNorma Hollowell\n\n\"I'll just need to swap out one more part, and we're done~ I'll hook you up with the latest Ether Battery as a reward!\"\n\"That time when you spun around like a top for three days straight was just a rare occurrence!\"\n\"And that one time you walked around all day with your ears! Isn't that cool?!\"\n\n—Agent Record",
+    "image": "Norma.png"
