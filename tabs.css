@@ -1,0 +1,97 @@
+/* Страница архива */
+.archive-page {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 20px;
+    color: #ffffff;
+}
+
+/* Вкладки */
+.tabs {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+.tab-btn {
+    background: #1a1a1a;
+    border: 1px solid rgba(0, 212, 255, 0.3);
+    color: #9b9b9b;
+    padding: 12px 30px;
+    border-radius: 40px;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: all 0.3s;
+}
+
+.tab-btn:hover {
+    background: #2d2d2d;
+    color: #00d4ff;
+    border-color: #00d4ff;
+}
+
+.tab-btn.active {
+    background: #00d4ff;
+    color: #0f0f0f;
+    border-color: #00d4ff;
+    font-weight: 600;
+    box-shadow: 0 0 15px rgba(0, 212, 255, 0.4);
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+/* Общие стили для всех вкладок (используем те же карточки, что и на главной) */
+#tab-characters .container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 25px;
+    padding: 0;
+}
+
+/* Анонсы — более крупные карточки */
+#tab-announcements .announcements-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    justify-content: center;
+}
+
+.announcement-card {
+    background: #1a1a1a;
+    border-radius: 20px;
+    padding: 25px;
+    border: 1px solid rgba(255, 215, 0, 0.3);
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.1);
+    width: 300px;
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.announcement-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 30px rgba(255, 215, 0, 0.3);
+}
+
+.announcement-card .character-name {
+    font-family: 'Russo One', sans-serif;
+    font-size: 1.5rem;
+    color: #ffd700;
+    margin-bottom: 10px;
+}
+
+.announcement-card .announcement-info {
+    color: #9b9b9b;
+    font-size: 0.9rem;
+}
+
+/* Для карточек персонажей используем существующие стили .card и т.д. */
