@@ -29,15 +29,15 @@
             margin-bottom: 30px;
         }
         .back-link:hover { text-decoration: underline; }
+        /* Изменён на колонку */
         .announcements-grid {
             display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
+            flex-direction: column;   /* вертикально */
+            align-items: center;      /* по центру */
             gap: 40px;
         }
-        /* Карточка — ещё больше */
         .ann-card {
-            width: 550px;                    /* было 450px */
+            width: 550px;
             background: #1a1a1a;
             border-radius: 24px;
             border: 1px solid rgba(255, 215, 0, 0.3);
@@ -63,7 +63,7 @@
         }
         .ann-card-img {
             width: 100%;
-            height: 320px;                   /* было 260px */
+            height: 320px;
             object-fit: cover;
             display: block;
             background: #2a2a2a;
@@ -75,7 +75,7 @@
         }
         .ann-card-name {
             font-family: 'Russo One', sans-serif;
-            font-size: 2rem;                 /* чуть крупнее */
+            font-size: 2rem;
             color: #ffd700;
             margin-bottom: 6px;
         }
