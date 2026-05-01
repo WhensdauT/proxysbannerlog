@@ -40,7 +40,7 @@
         /* Горизонтальная карточка */
         .ann-card {
             position: relative;
-            width: 360px;
+            width: 380px;
             background: #1a1a1a;
             border-radius: 20px;
             border: 1px solid rgba(255, 215, 0, 0.3);
@@ -55,6 +55,7 @@
             box-shadow: 0 0 30px rgba(255, 45, 149, 0.4);
             border-color: #ff2d95;
         }
+        /* Основной блок: картинка + имя */
         .ann-card-main {
             position: relative;
             z-index: 2;
@@ -86,6 +87,7 @@
             color: #9b9b9b;
             font-size: 0.9rem;
         }
+        /* Панель с деталями (выезжает снизу) */
         .ann-details {
             background: #111;
             border-top: 1px solid #ff2d95;
@@ -101,40 +103,50 @@
             box-shadow: 0 -5px 20px rgba(0,0,0,0.8);
             display: flex;
             flex-direction: column;
-            gap: 10px;
+            gap: 12px;
             border-radius: 0 0 20px 20px;
         }
         .ann-card:hover .ann-details {
             transform: translateY(0);
             opacity: 1;
         }
-        .ann-details p {
-            margin: 0;
-            font-size: 0.9rem;
-            color: #ccc;
+        /* Строка с атрибутами */
+        .ann-attributes {
             display: flex;
+            justify-content: center;
+            gap: 15px;
             align-items: center;
-            gap: 8px;
         }
-        .ann-details strong {
-            color: #ffd700;
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            min-width: 70px;
-            display: inline-block;
+        .ann-attribute-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+            color: #ccc;
+            font-size: 0.8rem;
         }
-        .detail-icon {
-            width: 24px;
-            height: 24px;
+        .ann-attribute-item img {
+            width: 32px;
+            height: 32px;
             object-fit: contain;
-            display: inline-block;
         }
-        .detail-icon-emoji {
-            font-size: 1.2rem;
-            width: 24px;
+        .ann-attribute-emoji {
+            font-size: 1.5rem;
+        }
+        /* Текст о персонаже */
+        .ann-description {
+            color: #bbb;
+            font-size: 0.85rem;
+            line-height: 1.4;
             text-align: center;
-            display: inline-block;
+        }
+        /* Дата выхода */
+        .ann-release {
+            text-align: center;
+            color: #ffd700;
+            font-weight: 600;
+            font-size: 1rem;
+            margin-top: 5px;
         }
     </style>
 </head>
@@ -153,7 +165,7 @@
         // Базовая папка для всех изображений анонсов
         const IMAGES_BASE = 'imagine/';
 
-        // Эмодзи-заглушки на случай, если картинка не указана или не загрузилась
+        // Заглушки-эмодзи для ситуаций, когда картинка не указана
         const defaultIcons = {
             faction: '🏛️',
             attribute: '⚡',
@@ -169,8 +181,8 @@
                   return;
               }
               data.forEach(entry => {
-                  // Формируем путь к картинке персонажа
-                  let agentImageSrc = 'https://via.placeholder.com/360x200/1a1a1a/ffd700?text=' + encodeURIComponent(entry.agent);
+                  // Картинка персонажа
+                  let agentImageSrc = 'https://via.placeholder.com/380x200/1a1a1a/ffd700?text=' + encodeURIComponent(entry.agent);
                   if (entry.image && entry.image.trim() !== '') {
                       agentImageSrc = entry.image.startsWith('http') ? entry.image : IMAGES_BASE + entry.image;
                   }
@@ -179,14 +191,18 @@
                   const getIcon = (imageField, emoji) => {
                       if (entry[imageField] && entry[imageField].trim() !== '') {
                           const src = entry[imageField].startsWith('http') ? entry[imageField] : IMAGES_BASE + entry[imageField];
-                          return `<img src="${src}" class="detail-icon" onerror="this.outerHTML='<span class=\'detail-icon-emoji\'>${emoji}</span>';">`;
+                          return `<img src="${src}" alt="" onerror="this.outerHTML='<span class=\'ann-attribute-emoji\'>${emoji}</span>';">`;
                       }
-                      return `<span class="detail-icon-emoji">${emoji}</span>`;
+                      return `<span class="ann-attribute-emoji">${emoji}</span>`;
                   };
 
                   const factionIcon = getIcon('factionImage', defaultIcons.faction);
                   const attributeIcon = getIcon('attributeImage', defaultIcons.attribute);
                   const elementIcon = getIcon('elementImage', defaultIcons.element);
+
+                  // Описание персонажа (берется из поля description в JSON)
+                  const description = entry.description || 'Подробности появятся позже.';
+                  const releaseDate = entry.estimatedRelease || 'Дата уточняется';
 
                   const card = document.createElement('div');
                   card.className = 'ann-card';
@@ -196,17 +212,32 @@
                              alt="${entry.agent}" 
                              class="ann-card-img" 
                              loading="lazy"
-                             onerror="this.onerror=null; this.src='https://via.placeholder.com/360x200/1a1a1a/ffd700?text=' + encodeURIComponent('${entry.agent}');">
+                             onerror="this.onerror=null; this.src='https://via.placeholder.com/380x200/1a1a1a/ffd700?text=' + encodeURIComponent('${entry.agent}');">
                         <div class="ann-card-header">
                             <div class="ann-card-name">${entry.agent}</div>
                             <div class="ann-card-version">Версия ${entry.version}</div>
                         </div>
                     </div>
                     <div class="ann-details">
-                        <p>${factionIcon}<strong>Фракция</strong> ${entry.faction || 'Неизвестно'}</p>
-                        <p>${attributeIcon}<strong>Атрибут</strong> ${entry.attribute || 'Неизвестно'}</p>
-                        <p>${elementIcon}<strong>Тип</strong> ${entry.element || 'Неизвестно'}</p>
-                        <p><span class="detail-icon-emoji">📅</span><strong>Выход</strong> ${entry.estimatedRelease || 'Скоро'}</p>
+                        <!-- Иконки фракции, атрибута, типа -->
+                        <div class="ann-attributes">
+                            <div class="ann-attribute-item">
+                                ${factionIcon}
+                                <span>${entry.faction || 'Неизвестно'}</span>
+                            </div>
+                            <div class="ann-attribute-item">
+                                ${attributeIcon}
+                                <span>${entry.attribute || 'Неизвестно'}</span>
+                            </div>
+                            <div class="ann-attribute-item">
+                                ${elementIcon}
+                                <span>${entry.element || 'Неизвестно'}</span>
+                            </div>
+                        </div>
+                        <!-- Текст о персонаже -->
+                        <div class="ann-description">${description}</div>
+                        <!-- Дата выхода -->
+                        <div class="ann-release">📅 Выход: ${releaseDate}</div>
                     </div>
                   `;
                   container.appendChild(card);
